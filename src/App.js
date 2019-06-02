@@ -1,6 +1,11 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  NavLink
+} from 'react-router-dom'
 
 import store from './store'
 import Nav from './containers/Nav'
@@ -15,6 +20,26 @@ class App extends React.Component {
         <Router>
           <div className='App'>
             <Nav />
+            <ul className='navbar-nav ml-auto'>
+              <li className='nav-item'>
+                <NavLink
+                  className='nav-link'
+                  activeClassName='a-active'
+                  to='/login'
+                >
+                  Login
+                </NavLink>
+              </li>
+              <li className='nav-item'>
+                <NavLink
+                  className='nav-link'
+                  activeClassName='a-active'
+                  to='/register'
+                >
+                  Sign Up
+                </NavLink>
+              </li>
+            </ul>
             <Route exact path='/login' basename='/login' component={Login} />
           </div>
         </Router>
