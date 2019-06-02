@@ -1,0 +1,109 @@
+@import '../App.scss';
+
+.Auth {
+  color: #35477d;
+
+  input {
+    width: 290px;
+    height: 60px;
+    color: #35477d;
+    border-bottom: 1px solid gray;
+  }
+
+  button {
+    width: 160px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 40px;
+  }
+
+  .btn-login {
+    background: #35477d;
+    border: none;
+    color: white;
+  }
+
+  .btn-register {
+    border: 2px solid #f67280;
+    color: #f67280;
+  }
+
+  .Login {
+    padding: 200px 50px 0 50px;
+  }
+
+  .Register {
+    .form-container {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(108, 91, 122, 0.5);
+    }
+
+    form {
+      width: 80%;
+      height: 500px;
+      background: white;
+      position: fixed;
+      top: 20%;
+      box-shadow: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .Auth {
+    background: url('../assets/loginBg.svg') no-repeat;
+    height: 100vh;
+    width: 100vw;
+    background-position: 80% bottom;
+    background-size: 75%;
+
+    .Login {
+      padding: 100px 100px 0 100px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .Auth {
+    background-size: 65%;
+
+    .Register {
+      form {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .Auth {
+    background-size: 60%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .Auth {
+    background-position: 95% 5%;
+    background-size: auto;
+
+    .Login {
+      padding-top: 250px;
+      padding-left: 100px;
+
+      h4 {
+        width: 570px;
+        height: 103px;
+      }
+    }
+
+    .Register {
+      form {
+        width: 40%;
+      }
+    }
+  }
+}
