@@ -1,3 +1,32 @@
-.App {
-  text-align: center;
+%x-centered {
+  display: flex;
+  justify-content: center;
+}
+
+%y-centered {
+  display: flex;
+  align-items: center;
+}
+
+%xy-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  &:focus {
+    outline: 0;
+  }
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  resize: none;
+  border: none;
+  background: inherit;
+  padding: 0;
 }
