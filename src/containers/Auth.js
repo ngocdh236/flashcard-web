@@ -21,7 +21,7 @@ class Auth extends Component {
     }
 
     this.onChange = this.onChange.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
+    this.login = this.login.bind(this)
     this.toggleRegisterPopup = this.toggleRegisterPopup.bind(this)
   }
 
@@ -39,6 +39,15 @@ class Auth extends Component {
     }
 
     this.props.loginUser(userData)
+  }
+
+  login(e) {
+    e.preventDefault()
+
+    const userData = {
+      email: this.state.email,
+      password: this.state.password
+    }
   }
 
   toggleRegisterPopup(e) {
@@ -128,7 +137,7 @@ class Auth extends Component {
               />
             </div>
 
-            <button type='submit' className='btn-login'>
+            <button type='submit' className='btn-login' onClick={this.login}>
               Login
             </button>
 

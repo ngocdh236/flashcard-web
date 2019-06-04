@@ -2,6 +2,7 @@
 
 .Auth {
   color: #35477d;
+  min-height: 100vh;
 
   input {
     width: 290px;
@@ -55,10 +56,8 @@
 
 @media only screen and (min-width: 600px) {
   .Auth {
-    background: url('../assets/loginBg.svg') no-repeat;
-    height: 100vh;
-    width: 100vw;
-    background-position: 80% bottom;
+    background: url('../assets/loginBgSmall.svg') no-repeat;
+    background-position: 90% bottom;
     background-size: 75%;
 
     .Login {
@@ -81,22 +80,23 @@
 
 @media only screen and (min-width: 992px) {
   .Auth {
-    background-size: 60%;
+    background-size: 50%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .Auth {
-    background-position: 95% 5%;
-    background-size: auto;
+    background: url('../assets/loginBg.svg') no-repeat;
+    background-position: right top;
+    background-size: auto 100%;
 
     .Login {
       padding-top: 250px;
       padding-left: 100px;
 
       h4 {
-        width: 570px;
-        height: 103px;
+        width: 400px;
+        margin-bottom: 60px;
       }
     }
 
