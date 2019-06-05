@@ -21,12 +21,18 @@ export const loginUser = userData => dispatch => {
   customAxios
     .post(loginUrl, userData)
     .then(res => {
-      console.log(res)
       const token = res.data.token
       localStorage.setItem('token', token)
       setAuthToken(token)
       const user = jwtDecode(token)
-      console.log(user)
+      dispatch(setUser(user))
     })
     .catch(err => console.log(err))
+}
+
+export const setUser = user => {
+  return {
+    type: Types.SET_USER,
+    user: user
+  }
 }
