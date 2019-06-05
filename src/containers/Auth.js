@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import Input from '../components/Input'
 import logo from '../assets/logo.svg'
 import iconEmail from '../assets/iconEmail.svg'
 import iconPassword from '../assets/iconPassword.svg'
 import iconUser from '../assets/iconUser.svg'
+import { loginUser } from '../actions/authActions'
 
 import '../styles/Auth.scss'
 
@@ -48,6 +51,8 @@ class Auth extends Component {
       email: this.state.email,
       password: this.state.password
     }
+
+    this.props.loginUser(userData)
   }
 
   toggleRegisterPopup(e) {
@@ -155,4 +160,16 @@ class Auth extends Component {
   }
 }
 
-export default Auth
+Auth.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Auth)
