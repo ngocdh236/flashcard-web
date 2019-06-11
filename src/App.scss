@@ -15,12 +15,15 @@
 }
 
 button {
+  border: none;
   &:focus {
     outline: 0;
   }
 }
 
-input {
+a,
+input,
+textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -29,4 +32,36 @@ input {
   border: none;
   background: inherit;
   padding: 0;
+}
+
+a {
+  color: #35477d;
+}
+
+.a-active {
+  color: #f67280;
+}
+
+a:hover {
+  color: palevioletred;
+}
+
+.vertical-line {
+  border-left: 1px solid #6c5b7a;
+  width: 10px;
+}
+
+.App {
+  color: #35477d;
+
+  .Nav {
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 60%;
+    }
+    table {
+      width: auto;
+    }
+  }
 }

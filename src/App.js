@@ -9,6 +9,7 @@ import {
 import jwtDecode from 'jwt-decode'
 
 import store from './store'
+import Header from './containers/Header'
 import Nav from './containers/Nav'
 import Auth from './containers/Auth'
 import setAuthToken from './actions/setAuthToken'
@@ -25,22 +26,28 @@ if (localStorage.token) {
 
 class App extends React.Component {
   render() {
-    const { isAuthenticated } = false
+    const { isAuthenticated } = true
     const guestLinks = (
       <div>
         <Auth />
       </div>
     )
 
-    const userLinks = (
-      <div>
-        <Nav />
-      </div>
-    )
+    // const userLinks = (
+    //   <div>
+    //     <Nav />
+    //   </div>
+    // )
     return (
       <Provider store={store}>
         <Router>
-          <div className='App'>{isAuthenticated ? userLinks : guestLinks}</div>
+          <div className='App'>
+            <Header />
+            <div className='d-flex container'>
+              <Nav />
+              <div className='vertical-line' />
+            </div>
+          </div>
         </Router>
       </Provider>
     )
