@@ -12,6 +12,7 @@ import store from './store'
 import Header from './containers/Header'
 import Nav from './containers/Nav'
 import Auth from './containers/Auth'
+import MainHome from './containers/MainHome'
 import setAuthToken from './actions/setAuthToken'
 import { setUser } from './actions/authActions'
 
@@ -40,6 +41,7 @@ class App extends React.Component {
         <div className='d-flex container'>
           <Nav />
           <div className='vertical-line' />
+          <Route exact path='/' basename='/' component={MainHome} />
         </div>
       </div>
     )

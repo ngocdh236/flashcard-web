@@ -53,15 +53,32 @@ a:hover {
 
 .App {
   color: #35477d;
+  margin-top: 50px;
 
   .Nav {
     display: flex;
     flex-direction: column;
+
     img {
-      width: 60%;
+      width: 80%;
     }
     table {
       width: auto;
     }
   }
+}
+
+.nav-item-bold {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.header-item {
+  font-weight: bold;
+  font-size: 18px;
 }

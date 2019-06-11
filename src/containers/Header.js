@@ -6,7 +6,7 @@ import logo from '../assets/logo.svg'
 class Header extends Component {
   render() {
     return (
-      <div className='Header navbar navbar-expand-sm container'>
+      <div className='Header navbar navbar-expand-sm container mb-5'>
         <NavLink exact to='/'>
           <img src={logo} alt='Logo' />
         </NavLink>
@@ -27,10 +27,10 @@ class Header extends Component {
           <ul className='navbar-nav ml-auto'>
             <li className='nav-item'>
               <NavLink
-                className='nav-link'
+                className='nav-link header-item'
                 activeClassName='a-active'
                 exact
-                to='/home'
+                to='/'
               >
                 Home
               </NavLink>
@@ -38,7 +38,7 @@ class Header extends Component {
 
             <li className='nav-item'>
               <NavLink
-                className='nav-link'
+                className='nav-link header-item'
                 activeClassName='a-active'
                 exact
                 to='/create'
@@ -49,17 +49,17 @@ class Header extends Component {
 
             <li className='nav-item'>
               <NavLink
-                className='nav-link'
+                className='nav-link header-item'
                 activeClassName='a-active'
                 exact
-                to='/category'
+                to='/categories'
               >
                 Category
               </NavLink>
             </li>
 
             <li className='nav-item'>
-              <NavLink className='nav-link'>Logout</NavLink>
+              <NavLink className='nav-link header-item'>Logout</NavLink>
             </li>
           </ul>
         </div>

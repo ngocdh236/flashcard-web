@@ -9,24 +9,6 @@ class Nav extends Component {
   render() {
     return (
       <div>
-        {/* <nav className='Nav nav flex-column'>
-          <NavLink className='nav-link'>
-            <img className='nav-link' src={ava} alt='Avatar' />
-          </NavLink>
-          <div className='nav-link'>
-            <img src={iconDecks} />
-            <NavLink activeClassName='a-active' exact to='/decks'>
-              All Decks
-            </NavLink>
-          </div>
-          <div className='nav-link'>
-            <img src={iconSetting} className='mr-2' />
-            <NavLink activeClassName='a-active' exact to='/setting'>
-              Setting
-            </NavLink>
-          </div>
-        </nav> */}
-
         <table className='Nav'>
           <NavLink className='nav-link'>
             <img className='nav-link' src={ava} alt='Avatar' />
@@ -37,7 +19,12 @@ class Nav extends Component {
                 <img src={iconDecks} />
               </th>
               <td>
-                <NavLink activeClassName='a-active' exact to='/decks'>
+                <NavLink
+                  className='nav-link nav-item-bold'
+                  activeClassName='a-active'
+                  exact
+                  to='/decks'
+                >
                   All Decks
                 </NavLink>
               </td>
@@ -48,7 +35,12 @@ class Nav extends Component {
                 <img src={iconSetting} />
               </th>
               <td>
-                <NavLink activeClassName='a-active' exact to='/setting'>
+                <NavLink
+                  className='nav-link nav-item-bold'
+                  activeClassName='a-active'
+                  exact
+                  to='/setting'
+                >
                   Setting
                 </NavLink>
               </td>
