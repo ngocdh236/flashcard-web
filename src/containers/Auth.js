@@ -28,6 +28,18 @@ class Auth extends Component {
     this.toggleRegisterPopup = this.toggleRegisterPopup.bind(this)
   }
 
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      window.location.href = '/'
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.auth.isAuthenticated) {
+      window.location.href = '/'
+    }
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
   }

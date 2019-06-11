@@ -25,7 +25,7 @@ if (localStorage.token) {
 
 class App extends React.Component {
   render() {
-    const { isAuthenticated } = false
+    const { isAuthenticated } = store.getState().auth
     const guestLinks = (
       <div>
         <Auth />
@@ -33,14 +33,14 @@ class App extends React.Component {
     )
 
     const userLinks = (
-      <div>
+      <div className='App container'>
         <Nav />
       </div>
     )
     return (
       <Provider store={store}>
         <Router>
-          <div className='App'>{isAuthenticated ? userLinks : guestLinks}</div>
+          <div>{isAuthenticated ? userLinks : guestLinks}</div>
         </Router>
       </Provider>
     )
