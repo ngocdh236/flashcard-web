@@ -26,28 +26,28 @@ if (localStorage.token) {
 
 class App extends React.Component {
   render() {
-    const { isAuthenticated } = true
+    const { isAuthenticated } = store.getState().auth
+
     const guestLinks = (
       <div>
         <Auth />
       </div>
     )
 
-    // const userLinks = (
-    //   <div>
-    //     <Nav />
-    //   </div>
-    // )
+    const userLinks = (
+      <div className='App container'>
+        <Header />
+        <div className='d-flex container'>
+          <Nav />
+          <div className='vertical-line' />
+        </div>
+      </div>
+    )
+
     return (
       <Provider store={store}>
         <Router>
-          <div className='App'>
-            <Header />
-            <div className='d-flex container'>
-              <Nav />
-              <div className='vertical-line' />
-            </div>
-          </div>
+          <div className='App'>{isAuthenticated ? userLinks : guestLinks}</div>
         </Router>
       </Provider>
     )
