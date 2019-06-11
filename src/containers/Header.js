@@ -3,6 +3,8 @@ import { NavLink, withRouter } from 'react-router-dom'
 
 import logo from '../assets/logo.svg'
 
+import '../styles/Header.scss'
+
 class Header extends Component {
   render() {
     return (
@@ -27,7 +29,7 @@ class Header extends Component {
           <ul className='navbar-nav ml-auto'>
             <li className='nav-item'>
               <NavLink
-                className='nav-link header-item'
+                className='nav-link'
                 activeClassName='a-active'
                 exact
                 to='/'
@@ -38,7 +40,7 @@ class Header extends Component {
 
             <li className='nav-item'>
               <NavLink
-                className='nav-link header-item'
+                className='nav-link'
                 activeClassName='a-active'
                 exact
                 to='/create'
@@ -49,7 +51,7 @@ class Header extends Component {
 
             <li className='nav-item'>
               <NavLink
-                className='nav-link header-item'
+                className='nav-link'
                 activeClassName='a-active'
                 exact
                 to='/categories'
@@ -59,7 +61,7 @@ class Header extends Component {
             </li>
 
             <li className='nav-item'>
-              <NavLink className='nav-link header-item'>Logout</NavLink>
+              <NavLink className='nav-link'>Logout</NavLink>
             </li>
           </ul>
         </div>

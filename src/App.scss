@@ -48,37 +48,10 @@ a:hover {
 
 .vertical-line {
   border-left: 1px solid #6c5b7a;
-  width: 10px;
+  width: 1px;
 }
 
 .App {
   color: #35477d;
   margin-top: 50px;
-
-  .Nav {
-    display: flex;
-    flex-direction: column;
-
-    img {
-      width: 80%;
-    }
-    table {
-      width: auto;
-    }
-  }
-}
-
-.nav-item-bold {
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.label {
-  font-weight: bold;
-  font-size: 24px;
-}
-
-.header-item {
-  font-weight: bold;
-  font-size: 18px;
 }

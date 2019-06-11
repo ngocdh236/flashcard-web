@@ -40,7 +40,7 @@ class App extends React.Component {
         <Header />
         <div className='d-flex container'>
           <Nav />
-          <div className='vertical-line' />
+          <div className='vertical-line mx-5' />
           <Route exact path='/' basename='/' component={MainHome} />
         </div>
       </div>

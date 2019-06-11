@@ -1,0 +1,17 @@
+@import '../App.scss';
+
+.Nav {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 80%;
+  }
+  table {
+    width: auto;
+  }
+  .nav-link {
+    font-weight: bold;
+    font-size: 22px;
+  }
+}

@@ -5,6 +5,8 @@ import ava from '../assets/ava.svg'
 import iconDecks from '../assets/iconDecks.svg'
 import iconSetting from '../assets/iconSetting.svg'
 
+import '../styles/Nav.scss'
+
 class Nav extends Component {
   render() {
     return (
