@@ -80,9 +80,9 @@ class Auth extends Component {
 
     const registerPopup = (
       <div className='Register d-flex justify-content-center'>
-        <div className='form-container' onClick={this.toggleRegisterPopup} />
+        <div className='popup-container' onClick={this.toggleRegisterPopup} />
         <form
-          className='d-flex flex-column justify-content-center align-items-center'
+          className='popup d-flex flex-column justify-content-center align-items-center'
           noValidate
         >
           <h4>Create your own account</h4>

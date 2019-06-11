@@ -1,0 +1,12 @@
+@import '../App.scss';
+
+.DeckDetail {
+  .popup {
+    @extend %y-centered;
+    flex-direction: column;
+
+    input {
+      border: 1px solid #6c5b7a;
+    }
+  }
+}

@@ -11,7 +11,7 @@ class Deck extends Component {
 
   render() {
     return (
-      <div className='Deck'>
+      <div className='Deck' onClick={this.props.toggleCreateDeck}>
         {this.props.newDeck ? (
           <img src={iconAdd} />
         ) : (

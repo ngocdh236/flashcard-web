@@ -54,4 +54,24 @@ a:hover {
 .App {
   color: #35477d;
   margin-top: 50px;
+
+  .popup-container {
+    position: fixed;
+    background: rgba(108, 91, 122, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .popup {
+    position: fixed;
+    background: white;
+    width: 80%;
+    height: 500px;
+    top: 20%;
+    box-shadow: none;
+    left: 10%;
+    right: 10%;
+  }
 }

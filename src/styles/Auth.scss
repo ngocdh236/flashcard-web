@@ -32,26 +32,6 @@
   .Login {
     padding: 200px 50px 0 50px;
   }
-
-  .Register {
-    .form-container {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(108, 91, 122, 0.5);
-    }
-
-    form {
-      width: 80%;
-      height: 500px;
-      background: white;
-      position: fixed;
-      top: 20%;
-      box-shadow: none;
-    }
-  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -70,10 +50,10 @@
   .Auth {
     background-size: 65%;
 
-    .Register {
-      form {
-        width: 60%;
-      }
+    .popup {
+      width: 60%;
+      left: 20%;
+      right: 20%;
     }
   }
 }
@@ -100,10 +80,10 @@
       }
     }
 
-    .Register {
-      form {
-        width: 40%;
-      }
+    .popup {
+      width: 40%;
+      left: 30%;
+      right: 30%;
     }
   }
 }
