@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
+import { logoutUser } from '../actions/authActions'
 import logo from '../assets/logo.svg'
 
 import '../styles/Header.scss'
@@ -27,7 +28,6 @@ class Header extends Component {
           id='mobile-nav'
         >
           <div className='navbar-nav ml-auto'>
-            {/* <li className='nav-item'> */}
             <NavLink
               className='nav-link'
               activeClassName='a-active'
@@ -36,9 +36,7 @@ class Header extends Component {
             >
               Home
             </NavLink>
-            {/* </li> */}
 
-            {/* <li className='nav-item'> */}
             <NavLink
               className='nav-link'
               activeClassName='a-active'
@@ -47,9 +45,7 @@ class Header extends Component {
             >
               Create
             </NavLink>
-            {/* </li> */}
 
-            {/* <li className='nav-item'> */}
             <NavLink
               className='nav-link'
               activeClassName='a-active'
@@ -58,11 +54,10 @@ class Header extends Component {
             >
               Category
             </NavLink>
-            {/* </li> */}
 
-            {/* <li className=''> */}
-            <label className='nav-link mr-0'>Logout</label>
-            {/* </li> */}
+            <button className='nav-link mr-0' onClick={logoutUser}>
+              Logout
+            </button>
           </div>
         </div>
       </div>

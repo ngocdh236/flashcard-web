@@ -20,7 +20,8 @@ class Auth extends Component {
       name: '',
       email: '',
       password: '',
-      errors: {}
+      errors: {},
+      redirect: false
     }
 
     this.onChange = this.onChange.bind(this)
@@ -34,9 +35,16 @@ class Auth extends Component {
     }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     if (this.props.auth.isAuthenticated) {
       window.location.href = '/'
+    }
+
+    if (this.props.auth !== prevProps.auth) {
+      this.setState({
+        ...this.state,
+        redirect: true
+      })
     }
   }
 
@@ -76,6 +84,13 @@ class Auth extends Component {
   }
 
   render() {
+    const { from } = this.props.location.state || {
+      from: { pathname: '/' }
+    }
+    if (this.state.redirect) {
+      return <Redirect to={from} />
+    }
+
     const { errors } = this.state
 
     const registerPopup = (

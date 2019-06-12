@@ -9,42 +9,57 @@ import Nav from './containers/Nav'
 import Auth from './containers/Auth'
 import MainHome from './containers/MainHome'
 import setAuthToken from './actions/setAuthToken'
-import { setUser } from './actions/authActions'
+import { setUser, logoutUser } from './actions/authActions'
 
 import './App.scss'
 
-if (localStorage.token) {
-  const token = localStorage.token
+const token = localStorage.token
+
+if (token) {
   setAuthToken(token)
   const user = jwtDecode(token)
   store.dispatch(setUser(user))
+
+  const currentTime = Date.now() / 1000
+  if (user.exp < currentTime) {
+    store.dispatch(logoutUser())
+  }
 }
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      store.getState().auth.isAuthenticated ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{ pathname: '/auth', state: { from: props.location } }} />
+      )
+    }
+  />
+)
 
 class App extends React.Component {
   render() {
-    const { isAuthenticated } = store.getState().auth
-
-    const guestLinks = (
-      <div>
-        <Auth />
-      </div>
-    )
-
-    const userLinks = (
-      <div className='App'>
-        <Header />
-        <div className='d-flex'>
-          <Nav />
-          <div className='vertical-line mx-5' />
-          <Route exact path='/' basename='/' component={MainHome} />
-        </div>
-      </div>
-    )
-
     return (
       <Provider store={store}>
         <Router>
-          <div className='App'>{isAuthenticated ? userLinks : guestLinks}</div>
+          <div className='App'>
+            <Route exact path='/auth' basename='/auth' component={Auth} />
+
+            {store.getState().auth.isAuthenticated ? <Header /> : null}
+
+            {store.getState().auth.isAuthenticated ? (
+              <div className='aside'>
+                <Nav />
+                <div className='vertical-line mx-5' />
+              </div>
+            ) : null}
+
+            <div className='main'>
+              <PrivateRoute exact path='/' basename='/' component={MainHome} />
+            </div>
+          </div>
         </Router>
       </Provider>
     )

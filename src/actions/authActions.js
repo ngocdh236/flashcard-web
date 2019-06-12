@@ -30,9 +30,22 @@ export const loginUser = userData => dispatch => {
     .catch(err => console.log(err))
 }
 
+export const deleteUser = userId => {
+  customAxios
+    .delete(`${userUrl}:${userId}`)
+    .then(res => logoutUser())
+    .catch(err => console.log(err))
+}
+
 export const setUser = user => {
   return {
     type: Types.SET_USER,
     user: user
   }
+}
+
+export const logoutUser = () => {
+  localStorage.removeItem('token')
+  setAuthToken(false)
+  window.location.href = '/auth'
 }

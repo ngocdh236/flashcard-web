@@ -16,6 +16,7 @@
 
 button {
   border: none;
+  color: #35477d;
   &:focus {
     outline: 0;
   }
@@ -55,6 +56,21 @@ a:hover {
 .App {
   color: #35477d;
   margin: 20px 20px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+
+  .aside {
+    width: 30%;
+    display: flex;
+  }
+
+  .main {
+    width: 70%;
+  }
+
+  .Header {
+    width: 100%;
+  }
 
   .popup-container {
     position: fixed;
