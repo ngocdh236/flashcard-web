@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -128,7 +128,7 @@ class Auth extends Component {
     return (
       <div className='Auth'>
         <div className='Login'>
-          <img src={logo} />
+          <img src={logo} alt='Logo' />
           <form className='mt-5' noValidate>
             <h4>
               Study faster and better. Login to create your own flashcards.

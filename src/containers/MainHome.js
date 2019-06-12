@@ -17,7 +17,6 @@ class MainHome extends Component {
   }
 
   toggleCreateDeck() {
-    console.log('Hello')
     this.setState({
       ...this.state,
       deckDetailPopup: !this.state.deckDetailPopup

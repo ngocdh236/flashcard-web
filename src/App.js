@@ -1,11 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  NavLink
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 
 import store from './store'
@@ -36,9 +31,9 @@ class App extends React.Component {
     )
 
     const userLinks = (
-      <div className='App container'>
+      <div className='App'>
         <Header />
-        <div className='d-flex container'>
+        <div className='d-flex'>
           <Nav />
           <div className='vertical-line mx-5' />
           <Route exact path='/' basename='/' component={MainHome} />
