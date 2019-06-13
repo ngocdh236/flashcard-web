@@ -44,9 +44,9 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className='App'>
-            <Route exact path='/auth' basename='/auth' component={Auth} />
+          <Route exact path='/auth' basename='/auth' component={Auth} />
 
+          <div className='App'>
             {store.getState().auth.isAuthenticated ? <Header /> : null}
 
             {store.getState().auth.isAuthenticated ? (
