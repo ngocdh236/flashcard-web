@@ -11,7 +11,12 @@ class MainDecks extends Component {
     var decks = this.props.decks.map(deck => (
       <Deck key={deck._id} deck={deck} />
     ))
-    return <div className='MainDecks d-flex flex-wrap'>{decks}</div>
+    return (
+      <div className='MainDecks d-flex flex-wrap'>
+        {decks}
+        <Deck newDeck={true} />
+      </div>
+    )
   }
 }
 
