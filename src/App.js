@@ -8,6 +8,7 @@ import Header from './containers/Header'
 import Nav from './containers/Nav'
 import Auth from './containers/Auth'
 import MainHome from './containers/MainHome'
+import MainDecks from './containers/MainDecks'
 import setAuthToken from './actions/setAuthToken'
 import { setUser, logoutUser } from './actions/authActions'
 import { getAllDecks } from './actions/deckActions'
@@ -60,6 +61,12 @@ class App extends React.Component {
 
             <div className='main'>
               <PrivateRoute exact path='/' basename='/' component={MainHome} />
+              <PrivateRoute
+                exact
+                path='/decks'
+                basename='/dekcs'
+                component={MainDecks}
+              />
             </div>
           </div>
         </Router>

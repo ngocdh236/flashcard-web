@@ -18,4 +18,8 @@ class Deck extends Component {
   }
 }
 
+Deck.defaultProps = {
+  newDeck: false
+}
+
 export default Deck
