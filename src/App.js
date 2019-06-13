@@ -10,6 +10,7 @@ import Auth from './containers/Auth'
 import MainHome from './containers/MainHome'
 import setAuthToken from './actions/setAuthToken'
 import { setUser, logoutUser } from './actions/authActions'
+import { getAllDecks } from './actions/deckActions'
 
 import './App.scss'
 
@@ -19,6 +20,7 @@ if (token) {
   setAuthToken(token)
   const user = jwtDecode(token)
   store.dispatch(setUser(user))
+  store.dispatch(getAllDecks())
 
   const currentTime = Date.now() / 1000
   if (user.exp < currentTime) {

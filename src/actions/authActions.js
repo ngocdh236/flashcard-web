@@ -30,9 +30,9 @@ export const loginUser = userData => dispatch => {
     .catch(err => console.log(err))
 }
 
-export const deleteUser = userId => {
+export const deleteUser = () => {
   customAxios
-    .delete(`${userUrl}/${userId}`)
+    .delete(userUrl)
     .then(res => logoutUser())
     .catch(err => console.log(err))
 }
