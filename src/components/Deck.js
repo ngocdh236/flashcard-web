@@ -27,16 +27,22 @@ class Deck extends Component {
 
   render() {
     return (
-      <div className='Deck' onClick={this.toggleCreateDeck}>
-        {this.props.newDeck ? (
-          <img src={iconAdd} alt='Add' />
-        ) : (
-          <label
-            style={{ color: 'white', fontSize: '18px', fontWeight: '600' }}
-          >
-            {this.props.deck.name}
-          </label>
-        )}
+      <div>
+        <div className='Deck' onClick={this.toggleCreateDeck}>
+          {this.props.newDeck ? (
+            <img src={iconAdd} alt='Add' />
+          ) : (
+            <label
+              style={{
+                color: 'white',
+                fontSize: '18px',
+                fontWeight: '600'
+              }}
+            >
+              {this.props.deck.name}
+            </label>
+          )}
+        </div>
         {this.state.deckDetailPopup ? (
           <DeckDetail toggleCreateDeck={this.toggleCreateDeck} />
         ) : null}

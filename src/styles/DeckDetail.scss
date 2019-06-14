@@ -4,9 +4,19 @@
   .popup {
     @extend %y-centered;
     flex-direction: column;
+    padding: 60px;
 
     input {
       border: 1px solid #6c5b7a;
+      width: 380px;
+      height: 60px;
+      padding: 20px;
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f67280;
     }
   }
 }

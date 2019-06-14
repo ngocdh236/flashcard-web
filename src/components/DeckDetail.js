@@ -12,9 +12,9 @@ class DeckDetail extends Component {
         />
         <div className='popup'>
           <label>Create new deck</label>
-          <label>Name</label>
+          <p>Name</p>
           <input />
-          <label>Category</label>
+          <p>Category</p>
           <input />
         </div>
       </div>
