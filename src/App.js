@@ -64,7 +64,7 @@ class App extends React.Component {
               <PrivateRoute
                 exact
                 path='/decks'
-                basename='/dekcs'
+                basename='/decks'
                 component={MainDecks}
               />
             </div>

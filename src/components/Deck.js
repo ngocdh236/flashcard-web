@@ -31,7 +31,9 @@ class Deck extends Component {
         {this.props.newDeck ? (
           <img src={iconAdd} alt='Add' />
         ) : (
-          <label style={{ color: 'white', fontSize: '18px' }}>
+          <label
+            style={{ color: 'white', fontSize: '18px', fontWeight: '600' }}
+          >
             {this.props.deck.name}
           </label>
         )}

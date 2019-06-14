@@ -36,10 +36,6 @@ class Auth extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.auth.isAuthenticated) {
-      window.location.href = '/'
-    }
-
     if (this.props.auth !== prevProps.auth) {
       this.setState({
         ...this.state,
@@ -87,8 +83,9 @@ class Auth extends Component {
     const { from } = this.props.location.state || {
       from: { pathname: '/' }
     }
+
     if (this.state.redirect) {
-      return <Redirect to={from} />
+      window.location.href = from.pathname
     }
 
     const { errors } = this.state
