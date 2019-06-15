@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -84,7 +85,7 @@ class Auth extends Component {
     }
 
     if (this.state.redirect) {
-      window.location.href = from.pathname
+      return <Redirect to={from} />
     }
 
     const { errors } = this.state

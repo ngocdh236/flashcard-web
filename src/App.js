@@ -50,14 +50,20 @@ class App extends React.Component {
           <Route exact path='/auth' basename='/auth' component={Auth} />
 
           <div className='App'>
-            {store.getState().auth.isAuthenticated ? <Header /> : null}
+            <PrivateRoute
+              exact
+              path='/(|decks|categories|setting)'
+              component={Header}
+            />
 
-            {store.getState().auth.isAuthenticated ? (
-              <div className='aside'>
-                <Nav />
-                <div className='vertical-line mx-5' />
-              </div>
-            ) : null}
+            <div className='aside'>
+              <PrivateRoute
+                exact
+                path='/(|decks|categories|setting)'
+                component={Nav}
+              />
+              <div className='vertical-line mx-5' />
+            </div>
 
             <div className='main'>
               <PrivateRoute exact path='/' basename='/' component={MainHome} />
