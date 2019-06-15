@@ -11,12 +11,21 @@
       width: 380px;
       height: 60px;
       padding: 20px;
+      margin-bottom: 50px;
     }
 
     p {
       font-size: 24px;
       font-weight: bold;
       color: #f67280;
+    }
+
+    button {
+      width: 160px;
+      height: 50px;
+      border-radius: 30px;
+      background: #35477d;
+      color: white;
     }
   }
 }

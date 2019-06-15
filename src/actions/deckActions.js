@@ -3,10 +3,10 @@ import { Types } from '.'
 
 const deckUrl = '/decks'
 
-export const createDeck = deck => {
+export const createDeck = deck => dispatch => {
   customAxios
     .post(deckUrl, deck)
-    .then(res => console.log(res))
+    .then(res => dispatch({ type: Types.CREATE_DECK, deck: res.data }))
     .catch(err => console.log(err))
 }
 
