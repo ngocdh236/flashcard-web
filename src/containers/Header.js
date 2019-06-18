@@ -9,7 +9,7 @@ import '../styles/Header.scss'
 class Header extends Component {
   render() {
     return (
-      <div className='Header navbar navbar-expand-sm'>
+      <div className='Header navbar navbar-expand-sm my-5'>
         <NavLink exact to='/'>
           <img src={logo} alt='Logo' />
         </NavLink>

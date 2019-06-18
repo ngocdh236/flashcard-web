@@ -53,9 +53,38 @@ a:hover {
   min-height: 75vh;
 }
 
+.popup-container {
+  position: fixed;
+  background: rgba(108, 91, 122, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.popup {
+  @extend %y-centered;
+  flex-direction: column;
+  padding: 60px;
+  position: fixed;
+  background: white;
+  width: 80%;
+  top: 20%;
+  box-shadow: none;
+  left: 10%;
+  right: 10%;
+  -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.16);
+  label {
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 35px;
+  }
+}
+
 .App {
   color: #35477d;
-  margin: 20px 20px 0 20px;
   display: flex;
   flex-wrap: wrap;
 
@@ -70,39 +99,5 @@ a:hover {
 
   .Header {
     width: 100%;
-  }
-
-  .popup-container {
-    position: fixed;
-    background: rgba(108, 91, 122, 0.5);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .popup {
-    position: fixed;
-    background: white;
-    width: 80%;
-    // height: 500px;
-    top: 20%;
-    box-shadow: none;
-    left: 10%;
-    right: 10%;
-    -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.16);
-    -moz-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.16);
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.16);
-    label {
-      font-weight: bold;
-      font-size: 36px;
-      margin-bottom: 35px;
-    }
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .App {
-    margin: 60px 60px 0 60px;
   }
 }

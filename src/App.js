@@ -49,7 +49,7 @@ class App extends React.Component {
         <Router>
           <Route exact path='/auth' basename='/auth' component={Auth} />
 
-          <div className='App'>
+          <div className='App container'>
             <PrivateRoute
               exact
               path='/(|decks|categories|setting)'
@@ -62,7 +62,6 @@ class App extends React.Component {
                 path='/(|decks|categories|setting)'
                 component={Nav}
               />
-              <div className='vertical-line mx-5' />
             </div>
 
             <div className='main'>

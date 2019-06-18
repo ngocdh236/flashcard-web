@@ -2,10 +2,6 @@
 
 .DeckDetail {
   .popup {
-    @extend %y-centered;
-    flex-direction: column;
-    padding: 60px;
-
     input {
       border: 1px solid #6c5b7a;
       width: 380px;
