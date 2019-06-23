@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Types } from '../actions'
+import { Types } from './types'
 import isEmpty from '../utils/isEmpty'
 import customAxios from '../actions/customAxios'
 

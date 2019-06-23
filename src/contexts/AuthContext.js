@@ -1,7 +1,7 @@
 import React from 'react'
 import jwtDecode from 'jwt-decode'
 
-import { Types } from '../actions'
+import { Types } from './types'
 import isEmpty from '../utils/isEmpty'
 import customAxios from '../actions/customAxios'
 import setAuthToken from '../actions/setAuthToken'
