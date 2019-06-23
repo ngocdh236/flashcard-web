@@ -1,58 +1,41 @@
-import React, { Component } from 'react'
-
-import iconAdd from '../assets/iconAdd.svg'
-import DeckDetail from '../components/DeckDetail'
+import React, { useState } from 'react'
 
 import '../styles/Deck.scss'
+import iconAdd from '../assets/iconAdd.svg'
 
-class Deck extends Component {
-  constructor() {
-    super()
+import DeckDetail from './DeckDetail'
 
-    this.state = {
-      deckDetailPopup: false
-    }
+export default function Deck(props) {
+  const [showDetail, setShowDetail] = useState(false)
 
-    this.toggleCreateDeck = this.toggleCreateDeck.bind(this)
-  }
-
-  toggleCreateDeck() {
-    if (this.props.newDeck) {
-      this.setState({
-        ...this.state,
-        deckDetailPopup: !this.state.deckDetailPopup
-      })
+  function toggleCreateDeck() {
+    if (props.newDeck) {
+      setShowDetail(!showDetail)
     }
   }
 
-  render() {
-    return (
-      <div>
-        <div className='Deck' onClick={this.toggleCreateDeck}>
-          {this.props.newDeck ? (
-            <img src={iconAdd} alt='Add' />
-          ) : (
-            <label
-              style={{
-                color: 'white',
-                fontSize: '18px',
-                fontWeight: '600'
-              }}
-            >
-              {this.props.deck.name}
-            </label>
-          )}
-        </div>
-        {this.state.deckDetailPopup ? (
-          <DeckDetail toggleCreateDeck={this.toggleCreateDeck} />
-        ) : null}
+  return (
+    <div>
+      <div className='Deck' onClick={toggleCreateDeck}>
+        {props.newDeck ? (
+          <img src={iconAdd} alt='Add' />
+        ) : (
+          <label
+            style={{
+              color: 'white',
+              fontSize: '18px',
+              fontWeight: '600'
+            }}
+          >
+            {props.deck.name}
+          </label>
+        )}
       </div>
-    )
-  }
+      {showDetail ? <DeckDetail toggleCreateDeck={toggleCreateDeck} /> : null}
+    </div>
+  )
 }
 
 Deck.defaultProps = {
   newDeck: false
 }
-
-export default Deck
