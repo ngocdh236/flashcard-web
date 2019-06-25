@@ -8,10 +8,11 @@ import iconPassword from '../assets/iconPassword.svg'
 import iconUser from '../assets/iconUser.svg'
 
 import { AuthContext } from '../contexts/AuthContext'
+import { loginUser } from '../actions/authActions'
 import Input from './Input'
 
 export default function Auth(props) {
-  const { auth, loginUser } = React.useContext(AuthContext)
+  const { auth, authDispatch } = React.useContext(AuthContext)
 
   const [inputValues, setInputValues] = useState({
     name: '',
@@ -46,7 +47,7 @@ export default function Auth(props) {
       password: inputValues.password
     }
 
-    loginUser(userData)
+    loginUser(authDispatch, userData)
   }
 
   const registerPopup = (

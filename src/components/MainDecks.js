@@ -5,18 +5,14 @@ import '../styles/MainDecks.scss'
 import Deck from './Deck'
 import { DecksContext } from '../contexts/DecksContext'
 
+import { getAllDecks } from '../actions/decksActions'
+
 export default function MainDecks() {
-  const {
-    decks,
-    createDeck,
-    getAllDecks,
-    updateDeck,
-    deleteDeck
-  } = React.useContext(DecksContext)
+  const { decks, decksDispatch } = React.useContext(DecksContext)
 
   useEffect(() => {
-    getAllDecks()
-  }, [])
+    getAllDecks(decksDispatch)
+  }, [decksDispatch])
 
   const allDecks = decks.map(deck => <Deck key={deck._id} deck={deck} />)
 

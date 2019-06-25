@@ -4,11 +4,9 @@ import { NavLink } from 'react-router-dom'
 import '../styles/Header.scss'
 import logo from '../assets/logo.svg'
 
-import { AuthContext } from '../contexts/AuthContext'
+import { logoutUser } from '../actions/authActions'
 
 export default function Header() {
-  const { logoutUser } = React.useContext(AuthContext)
-
   return (
     <div className='Header navbar navbar-expand-sm my-5'>
       <NavLink exact to='/'>

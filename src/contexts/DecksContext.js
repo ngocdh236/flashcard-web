@@ -1,9 +1,6 @@
 import React from 'react'
 
 import { Types } from './types'
-import customAxios from '../actions/customAxios'
-
-export const DecksContext = React.createContext()
 
 const initialState = []
 
@@ -24,48 +21,16 @@ function reducer(state = initialState, action) {
   }
 }
 
+export const DecksContext = React.createContext()
+
 export function DecksProvider(props) {
   const [decks, decksDispatch] = React.useReducer(reducer, initialState)
-
-  const deckUrl = '/decks'
-
-  const createDeck = deck => {
-    customAxios
-      .post(deckUrl, deck)
-      .then(res => decksDispatch({ type: Types.CREATE_DECK, deck: res.data }))
-      .catch(err => console.log(err))
-  }
-
-  const getAllDecks = () => {
-    customAxios
-      .get(deckUrl)
-      .then(res => decksDispatch({ type: Types.SET_DECKS, decks: res.data }))
-      .catch(err => console.log(err))
-  }
-
-  const updateDeck = (deckId, deck) => {
-    customAxios
-      .put(`${deckUrl}/${deckId}`, deck)
-      .then(res => decksDispatch({ type: Types.UPDATE_DECK, deck: res.data }))
-      .catch(err => console.log(err))
-  }
-
-  const deleteDeck = (deckId, deck) => {
-    customAxios
-      .delete(`${deckUrl}/${deckId}`)
-      .then(res => decksDispatch({ type: Types.DELETE_DECK, deck: deck }))
-      .catch(err => console.log(err))
-  }
 
   return (
     <DecksContext.Provider
       value={{
         decks,
-        decksDispatch,
-        createDeck,
-        getAllDecks,
-        updateDeck,
-        deleteDeck
+        decksDispatch
       }}
     >
       {props.children}

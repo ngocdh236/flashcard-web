@@ -9,30 +9,28 @@ import MainHome from './components/MainHome'
 import MainDecks from './components/MainDecks'
 import setAuthToken from './actions/setAuthToken'
 import { AuthContext } from './contexts/AuthContext'
+import { setUser, logoutUser } from './actions/authActions'
 import isEmpty from './utils/isEmpty'
 
 import './App.scss'
 
-export default function App(props) {
-  const { auth, authDispatch, setUser, logoutUser } = React.useContext(
-    AuthContext
-  )
-
-  const token = localStorage.token
-  let user = {}
-
-  if (!isEmpty(token)) {
-    setAuthToken(token)
-    user = jwtDecode(token)
-    const currentTime = Date.now() / 1000
-    if (user.exp < currentTime) {
-      logoutUser()
-    }
-  }
+export default function App() {
+  const { auth, authDispatch } = React.useContext(AuthContext)
 
   useEffect(() => {
-    authDispatch(setUser(user))
-  }, [])
+    const token = localStorage.token
+
+    if (!isEmpty(token)) {
+      const user = jwtDecode(token)
+      const currentTime = Date.now() / 1000
+      if (user.exp < currentTime) {
+        logoutUser()
+      } else {
+        setAuthToken(token)
+        authDispatch(setUser(user))
+      }
+    }
+  }, [authDispatch])
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
