@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 
 import '../styles/DeckDetail.scss'
 
-import { DecksContext } from '../contexts/DecksContext'
+import { DataContext } from '../contexts/DataContext'
 
 export default function DeckDetail(props) {
-  const { createDeck } = React.useContext(DecksContext)
+  const { deckService } = React.useContext(DataContext)
 
   const [name, setName] = useState('')
   const [category, setCategory] = useState({})
@@ -21,7 +21,7 @@ export default function DeckDetail(props) {
       name: name
     }
 
-    createDeck(deck)
+    deckService.create(deck)
     props.toggleCreateDeck()
   }
 

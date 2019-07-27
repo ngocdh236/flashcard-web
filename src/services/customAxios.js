@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const customAxios = axios.create({
-  baseURL: 'https://sheltered-reaches-53167.herokuapp.com/api'
+  baseURL: 'http://localhost:5000/api'
 })
 
 export default customAxios

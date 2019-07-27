@@ -4,9 +4,11 @@ import { NavLink } from 'react-router-dom'
 import '../styles/Header.scss'
 import logo from '../assets/logo.svg'
 
-import { logoutUser } from '../actions/authActions'
+import { AuthContext } from '../contexts/AuthContext'
 
 export default function Header() {
+  const { authService } = React.useContext(AuthContext)
+
   return (
     <div className='Header navbar navbar-expand-sm my-5'>
       <NavLink exact to='/'>
@@ -46,7 +48,7 @@ export default function Header() {
             Category
           </NavLink>
 
-          <button className='nav-link mr-0' onClick={logoutUser}>
+          <button className='nav-link mr-0' onClick={authService.logout}>
             Logout
           </button>
         </div>

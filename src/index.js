@@ -6,13 +6,13 @@ import './index.scss'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { AuthProvider } from './contexts/AuthContext'
-import { DecksProvider } from './contexts/DecksContext'
+import { DataProvider } from './contexts/DataContext'
 
 ReactDOM.render(
   <AuthProvider>
-    <DecksProvider>
+    <DataProvider>
       <App />
-    </DecksProvider>
+    </DataProvider>
   </AuthProvider>,
   document.getElementById('root')
 )

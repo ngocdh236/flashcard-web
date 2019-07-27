@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
@@ -7,30 +8,30 @@ import Nav from './components/Nav'
 import Auth from './components/Auth'
 import MainHome from './components/MainHome'
 import MainDecks from './components/MainDecks'
-import setAuthToken from './actions/setAuthToken'
+import setAuthToken from './services/setAuthToken'
 import { AuthContext } from './contexts/AuthContext'
-import { setUser, logoutUser } from './actions/authActions'
-import isEmpty from './utils/isEmpty'
+import { isEmpty } from './utils/isEmpty'
 
 import './App.scss'
 
-export default function App() {
-  const { auth, authDispatch } = React.useContext(AuthContext)
+export default function App(props) {
+  const { auth, dispatchAuth, authService } = React.useContext(AuthContext)
+
+  const token = localStorage.token
+  let user = {}
+
+  if (!isEmpty(token)) {
+    setAuthToken(token)
+    user = jwtDecode(token)
+    const currentTime = Date.now() / 1000
+    if (user.exp < currentTime) {
+      authService.logout()
+    }
+  }
 
   useEffect(() => {
-    const token = localStorage.token
-
-    if (!isEmpty(token)) {
-      const user = jwtDecode(token)
-      const currentTime = Date.now() / 1000
-      if (user.exp < currentTime) {
-        logoutUser()
-      } else {
-        setAuthToken(token)
-        authDispatch(setUser(user))
-      }
-    }
-  }, [authDispatch])
+    dispatchAuth(authService.setUser(user))
+  }, [])
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route

@@ -1,20 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 
 import '../styles/MainDecks.scss'
 
 import Deck from './Deck'
-import { DecksContext } from '../contexts/DecksContext'
-
-import { getAllDecks } from '../actions/decksActions'
+import { DataContext } from '../contexts/DataContext'
 
 export default function MainDecks() {
-  const { decks, decksDispatch } = React.useContext(DecksContext)
+  const { data, deckService } = React.useContext(DataContext)
 
   useEffect(() => {
-    getAllDecks(decksDispatch)
-  }, [decksDispatch])
+    deckService.getAll()
+  }, [])
 
-  const allDecks = decks.map(deck => <Deck key={deck._id} deck={deck} />)
+  const allDecks = data.decks.map(deck => <Deck key={deck._id} deck={deck} />)
 
   return (
     <div className='MainDecks d-flex flex-wrap'>
