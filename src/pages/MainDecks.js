@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 
 import '../styles/MainDecks.scss'
 
-import Deck from './Deck'
+import Deck from '../components/Deck'
 import { DataContext } from '../contexts/DataContext'
 
 export default function MainDecks() {

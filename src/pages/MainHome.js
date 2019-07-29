@@ -2,7 +2,7 @@ import React from 'react'
 
 import '../styles/MainHome.scss'
 
-import Deck from './Deck'
+import Deck from '../components/Deck'
 
 export default function MainHome() {
   return (

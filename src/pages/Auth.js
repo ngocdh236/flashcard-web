@@ -8,7 +8,8 @@ import iconPassword from '../assets/iconPassword.svg'
 import iconUser from '../assets/iconUser.svg'
 
 import { AuthContext } from '../contexts/AuthContext'
-import Input from './Input'
+import { DataContext } from '../contexts/DataContext'
+import Input from '../components/Input'
 
 export default function Auth(props) {
   const { auth, authService } = React.useContext(AuthContext)

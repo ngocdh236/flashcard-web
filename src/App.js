@@ -5,9 +5,9 @@ import jwtDecode from 'jwt-decode'
 
 import Header from './components/Header'
 import Nav from './components/Nav'
-import Auth from './components/Auth'
-import MainHome from './components/MainHome'
-import MainDecks from './components/MainDecks'
+import Auth from './pages/Auth'
+import MainHome from './pages/MainHome'
+import MainDecks from './pages/MainDecks'
 import setAuthToken from './services/setAuthToken'
 import { AuthContext } from './contexts/AuthContext'
 import { isEmpty } from './utils/isEmpty'
@@ -15,7 +15,7 @@ import { isEmpty } from './utils/isEmpty'
 import './App.scss'
 
 export default function App(props) {
-  const { auth, dispatchAuth, authService } = React.useContext(AuthContext)
+  const { auth, authService } = React.useContext(AuthContext)
 
   const token = localStorage.token
   let user = {}
@@ -30,7 +30,7 @@ export default function App(props) {
   }
 
   useEffect(() => {
-    dispatchAuth(authService.setUser(user))
+    authService.setUser(user)
   }, [])
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
