@@ -21,12 +21,12 @@ export default function App(props) {
   let user = {}
 
   if (!isEmpty(token)) {
-    setAuthToken(token)
     user = jwtDecode(token)
     const currentTime = Date.now() / 1000
     if (user.exp < currentTime) {
       authService.logout()
     }
+    setAuthToken(token)
   }
 
   useEffect(() => {
