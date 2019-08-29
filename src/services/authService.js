@@ -27,7 +27,7 @@ export const useService = (state, dispatch) => {
         localStorage.setItem('token', token)
         setAuthToken(token)
         const user = jwtDecode(token)
-        dispatch(setUser(user))
+        setUser(user)
       })
       .catch(err => console.log(err))
   }
