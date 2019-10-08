@@ -44,13 +44,11 @@ Check it out [here](https://flashcard-web.now.sh)
 - JSX
 - JavaScript
 
-## Libraries
+## Libraries, Frameworkds & Tools
 
 - [React](https://reactjs.org) ...
-
-## Frameworks
-
 - [Bootstrap](https://getbootstrap.com)
+- Zeit
 
 ## API Reference
 
