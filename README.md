@@ -50,6 +50,11 @@ Check it out [here](https://flashcard-web.now.sh)
 - [Bootstrap](https://getbootstrap.com)
 - Zeit
 
+## Design Reference
+
+- Designed by Chau Hoang (minhchauhoang412@gmail.com)
+- Check it out [here](https://www.behance.net/gallery/81308585/Flash-UXUI-design?fbclid=IwAR1Rfqi2uRoP6hcljCZgYbENO0c0EvM6RCb948wwS14sxHp60BDbZrFrjtU)
+
 ## API Reference
 
 - Check it out [here](https://github.com/ngocdh236/flashcard-backend)
