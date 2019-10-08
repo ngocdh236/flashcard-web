@@ -46,7 +46,7 @@ Check it out [here](https://flashcard-web.now.sh)
 
 ## Libraries, Frameworkds & Tools
 
-- [React](https://reactjs.org) ...
+- [React](https://reactjs.org)
 - [Bootstrap](https://getbootstrap.com)
 - Zeit
 
