@@ -1,24 +1,26 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
-import '../styles/MainDecks.scss'
+import '../styles/MainDecks.scss';
 
-import Deck from '../components/Deck'
-import { DataContext } from '../contexts/DataContext'
+import Deck from '../components/Deck';
+import { DataContext } from '../contexts/DataContext';
 
 export default function MainDecks() {
-  const { data, deckService } = React.useContext(DataContext)
+  const { data, deckService } = React.useContext(DataContext);
 
   useEffect(() => {
-    deckService.getAll()
-  }, [])
+    deckService.getAll();
+  }, []);
 
-  const allDecks = data.decks.map(deck => <Deck key={deck._id} deck={deck} />)
+  const allDecks = data.decks.map(deck => <Deck key={deck.id} deck={deck} />);
 
   return (
-    <div className='MainDecks d-flex flex-wrap'>
-      {allDecks}
-      <Deck newDeck={true} />
+    <div className="MainDecks main">
+      <div className="decks">
+        {allDecks}
+        <Deck newDeck={true} />
+      </div>
     </div>
-  )
+  );
 }
