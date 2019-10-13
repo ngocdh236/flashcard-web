@@ -1,11 +1,11 @@
 @import '../App.scss';
 
 .Header {
-  margin-bottom: 80px;
+  .navbar-toggler {
+    padding: 0;
+  }
 
   .nav-link {
-    font-size: 18px;
-    margin-right: 20px;
     font-weight: 600;
   }
 

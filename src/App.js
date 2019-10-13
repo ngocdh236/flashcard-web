@@ -1,37 +1,37 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
-import jwtDecode from 'jwt-decode'
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 
-import Header from './components/Header'
-import Nav from './components/Nav'
-import Auth from './pages/Auth'
-import MainHome from './pages/MainHome'
-import MainDecks from './pages/MainDecks'
-import setAuthToken from './services/setAuthToken'
-import { AuthContext } from './contexts/AuthContext'
-import { isEmpty } from './utils/isEmpty'
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Auth from './pages/Auth';
+import MainHome from './pages/MainHome';
+import MainDecks from './pages/MainDecks';
+import setAuthToken from './services/setAuthToken';
+import { AuthContext } from './contexts/AuthContext';
+import { isEmpty } from './utils/isEmpty';
 
-import './App.scss'
+import './App.scss';
 
 export default function App(props) {
-  const { auth, authService } = React.useContext(AuthContext)
+  const { auth, authService } = React.useContext(AuthContext);
 
-  const token = localStorage.token
-  let user = {}
+  const token = localStorage.token;
+  let user = {};
 
   if (!isEmpty(token)) {
-    user = jwtDecode(token)
-    const currentTime = Date.now() / 1000
+    user = jwtDecode(token);
+    const currentTime = Date.now() / 1000;
     if (user.exp < currentTime) {
-      authService.logout()
+      authService.logout();
     }
-    setAuthToken(token)
+    setAuthToken(token);
   }
 
   useEffect(() => {
-    authService.setUser(user)
-  }, [])
+    authService.setUser(user);
+  }, []);
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
@@ -46,37 +46,33 @@ export default function App(props) {
         )
       }
     />
-  )
+  );
 
   return (
     <Router>
-      <Route exact path='/auth' basename='/auth' component={Auth} />
+      <div className="App">
+        <Route exact path="/auth" basename="/auth" component={Auth} />
 
-      <div className='App container'>
         <PrivateRoute
           exact
-          path='/(|decks|categories|setting)'
+          path="/(|decks|categories|setting)"
           component={Header}
         />
 
-        <div className='aside'>
-          <PrivateRoute
-            exact
-            path='/(|decks|categories|setting)'
-            component={Nav}
-          />
-        </div>
+        <PrivateRoute
+          exact
+          path="/(|decks|categories|setting)"
+          component={Nav}
+        />
 
-        <div className='main'>
-          <PrivateRoute exact path='/' basename='/' component={MainHome} />
-          <PrivateRoute
-            exact
-            path='/decks'
-            basename='/decks'
-            component={MainDecks}
-          />
-        </div>
+        <PrivateRoute exact path="/" basename="/" component={MainHome} />
+        <PrivateRoute
+          exact
+          path="/decks"
+          basename="/decks"
+          component={MainDecks}
+        />
       </div>
     </Router>
-  )
+  );
 }
