@@ -1,0 +1,27 @@
+@import '../App.scss';
+
+.AuthInput {
+  margin-bottom: 20px;
+
+  .input {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    border: 2px solid #35477d;
+    height: 60px;
+    color: #35477d;
+
+    &-icon {
+      @extend %xy-centered;
+    }
+
+    input {
+      padding-right: 5%;
+    }
+  }
+
+  .error {
+    color: red;
+    text-align: right;
+    margin-top: 10px;
+  }
+}

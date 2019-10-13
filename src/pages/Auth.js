@@ -1,126 +1,103 @@
-import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
-import '../styles/Auth.scss'
-import logo from '../assets/logo.svg'
-import iconEmail from '../assets/iconEmail.svg'
-import iconPassword from '../assets/iconPassword.svg'
-import iconUser from '../assets/iconUser.svg'
+import '../styles/Auth.scss';
+import logo from '../assets/logo.svg';
 
-import { AuthContext } from '../contexts/AuthContext'
-import { DataContext } from '../contexts/DataContext'
-import Input from '../components/Input'
+import { AuthContext } from '../contexts/AuthContext';
+import { DataContext } from '../contexts/DataContext';
+import AuthInput from '../components/AuthInput';
+import RegisterPopup from '../components/RegisterPopup';
 
 export default function Auth(props) {
-  const { auth, authService } = React.useContext(AuthContext)
+  const { auth, authService } = React.useContext(AuthContext);
 
   const [inputValues, setInputValues] = useState({
-    name: '',
     email: '',
-    password: ''
-  })
+    password: '',
+  });
 
-  const [isLoginPage, setIsLoginPage] = useState(true)
+  const [openRegisterPopup, setOpenRegisterPopup] = useState(false);
+
+  const [errors, setErrors] = useState([]);
 
   const { from } = props.location.state || {
-    from: { pathname: '/' }
-  }
+    from: { pathname: '/' },
+  };
 
   if (auth.isAuthenticated) {
-    return <Redirect to={from} />
+    return <Redirect to={from} />;
   }
 
-  function onChange(e) {
-    setInputValues({ ...inputValues, [e.target.name]: e.target.value })
-  }
+  const onChange = e => {
+    setInputValues({ ...inputValues, [e.target.name]: e.target.value });
+  };
 
-  function toggleRegisterPopup(e) {
-    e.preventDefault()
-    setIsLoginPage(!isLoginPage)
-  }
+  const toggleRegisterPopup = e => {
+    e.preventDefault();
+    setOpenRegisterPopup(!openRegisterPopup);
+  };
 
-  function login(e) {
-    e.preventDefault()
+  const login = e => {
+    e.preventDefault();
 
     const userData = {
       email: inputValues.email,
-      password: inputValues.password
-    }
+      password: inputValues.password,
+    };
 
-    authService.login(userData)
-  }
+    authService.login(userData, setErrors);
+  };
 
-  const registerPopup = (
-    <div className='Register d-flex justify-content-center'>
-      <div className='popup-container' onClick={toggleRegisterPopup} />
-      <form
-        className='popup d-flex flex-column justify-content-center align-items-center'
-        noValidate
-      >
-        <h4>Create your own account</h4>
-        <div className='mt-5'>
-          <img src={iconUser} alt='User' />
-          <Input
-            placeholder='Name'
-            name='name'
-            value={inputValues.name}
-            onChange={onChange}
-          />
-        </div>
-
-        <div className='input-icon'>
-          <img src={iconEmail} alt='Email' />
-          <Input name='email' value={inputValues.email} onChange={onChange} />
-        </div>
-
-        <div>
-          <img src={iconPassword} alt='Password' />
-          <Input
-            name='password'
-            type='password'
-            value={inputValues.password}
-            onChange={onChange}
-          />
-        </div>
-
-        <button type='submit' className='btn-login mt-5'>
-          Register
-        </button>
-      </form>
-    </div>
-  )
+  const loginModel = [
+    {
+      type: 'text',
+      placeholder: 'Email',
+      value: 'email',
+      icon: require('../assets/iconEmail.svg'),
+    },
+    {
+      type: 'password',
+      placeholder: 'Password',
+      value: 'password',
+      icon: require('../assets/iconPassword.svg'),
+    },
+  ];
 
   return (
-    <div className='Auth'>
-      <div className='Login'>
-        <img src={logo} alt='Logo' />
-        <form className='mt-5' noValidate>
-          <h4>Study faster and better. Login to create your own flashcards.</h4>
-          <div>
-            <img src={iconEmail} alt='Email' />
-            <Input name='email' value={inputValues.email} onChange={onChange} />
-          </div>
+    <div className="Auth">
+      <div className="Login text-center">
+        <img src={logo} alt="Logo" className="mb-4" />
 
-          <div>
-            <img src={iconPassword} alt='Password' />
-            <Input
-              name='password'
-              type='password'
-              value={inputValues.password}
-              onChange={onChange}
-            />
-          </div>
+        <h5>Study faster and better. Login to create your own flashcards.</h5>
 
-          <button type='submit' className='btn-login' onClick={login}>
-            Login
-          </button>
+        {loginModel.map(field => (
+          <AuthInput
+            key={field.value}
+            icon={field.icon}
+            placeholder={field.placeholder}
+            type={field.type}
+            name={field.value}
+            value={inputValues[field.value]}
+            onChange={onChange}
+            error={errors ? errors[field.value] : null}
+          />
+        ))}
 
-          <button className='btn-register ml-3' onClick={toggleRegisterPopup}>
-            Register
-          </button>
-        </form>
+        <button className="button-login" onClick={login}>
+          Login
+        </button>
+
+        <button className="button-register" onClick={toggleRegisterPopup}>
+          Register
+        </button>
       </div>
-      {!isLoginPage ? registerPopup : null}
+      {openRegisterPopup ? (
+        <RegisterPopup
+          authService={authService}
+          toggleRegisterPopup={toggleRegisterPopup}
+        />
+      ) : null}
     </div>
-  )
+  );
 }

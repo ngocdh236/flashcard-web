@@ -1,89 +1,101 @@
 @import '../App.scss';
 
 .Auth {
-  color: #35477d;
+  width: 100%;
   height: 100vh;
 
-  input {
-    width: 290px;
-    height: 60px;
-    color: #35477d;
-    border-bottom: 1px solid gray;
-  }
-
-  button {
-    width: 160px;
-    height: 50px;
-    border-radius: 50px;
-    margin-top: 40px;
-  }
-
-  .btn-login {
-    background: #35477d;
-    border: none;
-    color: white;
-  }
-
-  .btn-register {
-    border: 2px solid #f67280;
-    color: #f67280;
+  h5 {
+    margin-bottom: 20px;
   }
 
   .Login {
-    padding: 200px 50px 0 50px;
+    padding: 10% 5%;
+    @extend %xy-centered;
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+  }
+
+  .button {
+    &-login {
+      background: #35477d;
+      color: white;
+    }
+
+    &-register {
+      border: 2px solid #f67280;
+      color: #f67280;
+    }
+
+    &-submit {
+      width: 60%;
+      color: white;
+      background: #f67280;
+    }
+  }
+
+  .AuthInput {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .Auth {
+    button {
+      width: 160px;
+    }
+
+    .button {
+      &-submit {
+        width: 160px;
+      }
+    }
   }
 }
 
 @media only screen and (min-width: 600px) {
   .Auth {
-    background: url('../assets/loginBgSmall.svg') no-repeat;
-    background-position: 90% bottom;
-    background-size: 75%;
-
-    .Login {
-      padding: 100px 100px 0 100px;
+    button {
+      width: 160px;
     }
   }
 }
 
 @media only screen and (min-width: 768px) {
   .Auth {
-    background-size: 65%;
-
-    .popup {
+    .AuthInput {
       width: 60%;
-      left: 20%;
-      right: 20%;
+    }
+
+    .RegisterPopup {
+      .AuthInput {
+        width: 100%;
+      }
     }
   }
 }
 
-@media only screen and (min-width: 992px) {
-  .Auth {
-    background-size: 50%;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) and (min-height: 768px) {
   .Auth {
     background: url('../assets/loginBg.svg') no-repeat;
-    background-position: right top;
+    background-position: right;
     background-size: auto 100%;
 
     .Login {
-      padding-top: 250px;
-      padding-left: 100px;
+      display: block;
+      width: 50%;
+      padding: 15% 0 0 5%;
+      text-align: left !important;
 
-      h4 {
-        width: 400px;
-        margin-bottom: 60px;
+      button {
+        margin-top: 50px;
+        margin-right: 20px;
       }
-    }
-
-    .popup {
-      width: 40%;
-      left: 30%;
-      right: 30%;
     }
   }
 }
