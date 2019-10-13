@@ -42,7 +42,7 @@ export default function Header() {
   return (
     <div className="Header navbar navbar-expand-sm">
       <NavLink exact to="/">
-        <img src={logo} alt="Logo" />
+        <img className="logo" src={logo} alt="Logo" />
       </NavLink>
       <button
         className="navbar-toggler"

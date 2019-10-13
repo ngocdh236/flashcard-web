@@ -1,0 +1,46 @@
+@import '../App.scss';
+
+.LinkWithIcon {
+  display: grid;
+  grid-template-columns: 10% 10% 80%;
+  width: 60%;
+
+  .icon {
+    @extend %xy-centered;
+  }
+
+  .nav-link {
+    grid-column-start: 3;
+  }
+}
+
+@media only screen and (min-width: 575px) {
+  .Header {
+    .LinkWithIcon {
+      .icon {
+        display: none;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .Nav {
+    .LinkWithIcon {
+      margin-left: 5%;
+    }
+  }
+
+  .LinkWithIcon {
+    grid-template-columns: 25% 70%;
+    width: 100%;
+
+    .nav-link {
+      grid-column-start: 2;
+    }
+  }
+
+  #Setting {
+    display: none;
+  }
+}

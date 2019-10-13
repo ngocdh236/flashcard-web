@@ -1,3 +1,6 @@
+@import './styles/common/mixins.scss';
+@import './styles/popup.scss';
+
 %x-centered {
   display: flex;
   justify-content: center;
@@ -68,39 +71,13 @@ a {
   min-height: 75vh;
 }
 
-@mixin position($top, $right: $top, $bottom: $top, $left: $right) {
-  top: $top;
-  right: $right;
-  bottom: $bottom;
-  left: $left;
-}
-
-.popup {
-  &-container {
-    position: fixed;
-    background: rgba(108, 91, 122, 0.5);
-    @include position(0);
-  }
-
-  position: fixed;
-  background: white;
-  overflow-y: scroll;
-  padding: 5%;
-  @include position(5%, 10%);
-  @extend %y-centered;
-  flex-direction: column;
-  -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.16);
-  -moz-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.16);
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.16);
-}
-
 .App {
   display: flex;
   flex-wrap: wrap;
 
   .Header {
     width: 100%;
-    margin: 3%;
+    margin: 2% 5%;
   }
 
   .aside {
@@ -114,65 +91,21 @@ a {
   }
 }
 
-.LinkWithIcon {
-  display: grid;
-  grid-template-columns: 20% 80%;
-  width: 70%;
-
-  .icon {
-    @extend %y-centered;
-  }
-}
-
-@media only screen and (min-width: 575px) {
-  .Header {
-    .LinkWithIcon {
-      .icon {
-        display: none;
-      }
-    }
-  }
-}
-
-@media only screen and (min-height: 600px) {
-  .popup {
-    bottom: auto;
-  }
-}
-
-@media only screen and (min-width: 768px) and (min-height: 600px) {
-  .popup {
-    top: 10%;
-    left: 20%;
-    right: 20%;
-  }
-}
-
 @media only screen and (min-width: 992px) {
   .App {
+    .Header {
+      padding: 4% 8%;
+    }
+
     .aside {
       display: flex;
       width: 25%;
+      padding-left: 8%;
     }
 
     .main {
       width: 70%;
-      padding: 0 0 5% 5%;
+      padding: 0 5% 5% 5%;
     }
-
-    .LinkWithIcon {
-      width: 100%;
-    }
-
-    #Setting {
-      display: none;
-    }
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .popup {
-    left: 30%;
-    right: 30%;
   }
 }

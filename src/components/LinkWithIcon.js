@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import '../styles/LinkWithIcon.scss';
+
 export default function LinkWithIcon({ id, icon, link, name, onClick }) {
   return (
     <div id={id} className="LinkWithIcon">

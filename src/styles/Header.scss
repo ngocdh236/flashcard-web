@@ -1,6 +1,14 @@
 @import '../App.scss';
 
 .Header {
+  .logo {
+    width: 70%;
+  }
+
+  .navbar-collapse {
+    margin-top: 3%;
+  }
+
   .navbar-toggler {
     padding: 0;
   }
@@ -11,5 +19,17 @@
 
   button:hover {
     color: palevioletred;
+  }
+}
+
+@media only screen and (min-width: 575px) {
+  .Header {
+    .logo {
+      width: 100%;
+    }
+
+    .navbar-collapse {
+      margin-top: 0;
+    }
   }
 }
