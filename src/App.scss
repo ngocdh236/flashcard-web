@@ -1,111 +1,45 @@
+@import './styles/common/common.scss';
+@import './styles/common/extensions.scss';
 @import './styles/common/mixins.scss';
+@import './styles/common/variables.scss';
 @import './styles/popup.scss';
 
-%x-centered {
-  display: flex;
-  justify-content: center;
-}
-
-.x-centered {
-  display: flex;
-  justify-content: center;
-}
-
-%y-centered {
-  display: flex;
-  align-items: center;
-}
-
-.y-centered {
-  display: flex;
-  align-items: center;
-}
-
-%xy-centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.xy-centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-button {
-  border: none;
-  background: transparent;
-  &:focus {
-    outline: 0;
-  }
-}
-
-a,
-input,
-textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  resize: none;
-  border: none;
-  background: inherit;
-}
-
-a {
-  color: #35477d;
-
-  &:hover {
-    color: #f67280;
-  }
-}
-
-.a-active {
-  color: #f67280;
-}
-
-.vertical-line {
-  border-left: 1px solid #6c5b7a;
-  width: 1px;
-  min-height: 75vh;
-}
-
 .App {
-  display: flex;
-  flex-wrap: wrap;
+  color: $colorPrimary;
 
   .Header {
     width: 100%;
-    margin: 2% 5%;
+    padding: 5% 5%;
+    z-index: 1;
+    background: white;
   }
 
   .aside {
     display: none;
-    padding-left: 5%;
   }
 
   .main {
+    position: absolute;
+    height: 60%;
     width: 100%;
     padding: 0 5%;
+    overflow: auto;
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) and (min-height: 600px) {
   .App {
-    .Header {
-      padding: 4% 8%;
-    }
-
     .aside {
       display: flex;
+      position: fixed;
+      padding-left: 5%;
       width: 25%;
-      padding-left: 8%;
     }
 
     .main {
       width: 70%;
       padding: 0 5% 5% 5%;
+      left: 25%;
     }
   }
 }

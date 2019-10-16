@@ -1,0 +1,15 @@
+%x-centered {
+  display: flex;
+  justify-content: center;
+}
+
+%y-centered {
+  display: flex;
+  align-items: center;
+}
+
+%xy-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

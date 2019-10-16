@@ -1,80 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import AuthInput from './AuthInput';
-import formatAuthInputErrors from '../utils/formatAuthInputErrors';
+import AuthInput from './AuthInput'
+import formatAuthInputErrors from '../utils/formatAuthInputErrors'
 
 export default function RegisterPopup({ authService, toggleRegisterPopup }) {
   const [inputValues, setInputValues] = useState({
     name: '',
     email: '',
     password: '',
-    confirmPassword: '',
-  });
+    confirmPassword: ''
+  })
 
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([])
 
   const onChange = e => {
-    setInputValues({ ...inputValues, [e.target.name]: e.target.value });
-  };
+    setInputValues({ ...inputValues, [e.target.name]: e.target.value })
+  }
 
-  const registerModel = [
+  const RegisterInputModel = [
     {
       type: 'text',
       placeholder: 'Name',
       value: 'name',
-      icon: require('../assets/iconUser.svg'),
+      icon: require('../assets/iconUser.svg')
     },
     {
       type: 'text',
       placeholder: 'Email',
       value: 'email',
-      icon: require('../assets/iconEmail.svg'),
+      icon: require('../assets/iconEmail.svg')
     },
     {
       type: 'password',
       placeholder: 'Password',
       value: 'password',
-      icon: require('../assets/iconPassword.svg'),
+      icon: require('../assets/iconPassword.svg')
     },
     {
       type: 'password',
       placeholder: 'Confirm Password',
       value: 'confirmPassword',
-      icon: require('../assets/iconPassword.svg'),
-    },
-  ];
+      icon: require('../assets/iconPassword.svg')
+    }
+  ]
 
   const register = e => {
-    e.preventDefault();
-
     const userData = {
       name: inputValues.name,
       email: inputValues.email,
-      password: inputValues.password,
-    };
+      password: inputValues.password
+    }
 
     if (inputValues.password === inputValues.confirmPassword) {
       authService
         .register(userData)
         .then(() => {
-          toggleRegisterPopup();
+          toggleRegisterPopup()
         })
         .catch(err => {
-          setErrors(formatAuthInputErrors(err.response.data));
-        });
+          setErrors(formatAuthInputErrors(err.response.data))
+        })
     } else {
-      setErrors({ confirmPassword: 'Password does not match' });
+      setErrors({ confirmPassword: 'Password does not match' })
     }
-  };
+  }
 
   return (
-    <div className="RegisterPopup">
-      <div className="popup-container" onClick={toggleRegisterPopup} />
+    <div className='RegisterPopup'>
+      <div className='popup-container' onClick={toggleRegisterPopup} />
 
-      <div className="popup text-center">
+      <div className='popup text-center'>
         <h5>Create your own account</h5>
 
-        {registerModel.map(field => (
+        {RegisterInputModel.map(field => (
           <AuthInput
             key={field.value}
             icon={field.icon}
@@ -87,10 +85,10 @@ export default function RegisterPopup({ authService, toggleRegisterPopup }) {
           />
         ))}
 
-        <button className="button-submit" onClick={register}>
+        <button className='button-submit' onClick={register}>
           Submit
         </button>
       </div>
     </div>
-  );
+  )
 }

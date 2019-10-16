@@ -3,7 +3,7 @@
 .DeckDetail {
   .popup {
     input {
-      border: 1px solid #6c5b7a;
+      border: 1px solid $colorBorder;
       height: 60px;
       padding: 20px;
       margin-bottom: 50px;
@@ -12,14 +12,14 @@
     p {
       font-size: 24px;
       font-weight: bold;
-      color: #f67280;
+      color: $colorSecondary;
     }
 
     button {
       width: 160px;
       height: 50px;
       border-radius: 30px;
-      background: #35477d;
+      background: $colorPrimary;
       color: white;
     }
   }

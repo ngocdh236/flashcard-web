@@ -14,23 +14,7 @@
   }
 }
 
-@media only screen and (min-width: 575px) {
-  .Header {
-    .LinkWithIcon {
-      .icon {
-        display: none;
-      }
-    }
-  }
-}
-
 @media only screen and (min-width: 992px) {
-  .Nav {
-    .LinkWithIcon {
-      margin-left: 5%;
-    }
-  }
-
   .LinkWithIcon {
     grid-template-columns: 25% 70%;
     width: 100%;
@@ -38,9 +22,5 @@
     .nav-link {
       grid-column-start: 2;
     }
-  }
-
-  #Setting {
-    display: none;
   }
 }

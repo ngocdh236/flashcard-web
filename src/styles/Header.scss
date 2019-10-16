@@ -18,12 +18,18 @@
   }
 
   button:hover {
-    color: palevioletred;
+    color: $colorSecondary;
   }
 }
 
 @media only screen and (min-width: 575px) {
   .Header {
+    .LinkWithIcon {
+      .icon {
+        display: none;
+      }
+    }
+
     .logo {
       width: 100%;
     }

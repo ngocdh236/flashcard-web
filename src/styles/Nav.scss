@@ -1,13 +1,23 @@
 @import '../App.scss';
 
 .Nav {
-  display: flex;
   flex-direction: column;
-  min-height: 80vh;
-  border-right: 1px solid #6c5b7a;
-  width: 100%;
+  min-height: 60%;
+  border-right: 1px solid $colorBorder;
 
   .nav-link {
     font-weight: bold;
+  }
+}
+
+@media only screen and (min-width: 992px) and (min-height: 600px) {
+  .Nav {
+    .LinkWithIcon {
+      margin-left: 5%;
+    }
+  }
+
+  #Setting {
+    display: none;
   }
 }

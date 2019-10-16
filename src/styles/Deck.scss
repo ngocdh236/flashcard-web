@@ -2,13 +2,18 @@
 
 .Deck {
   height: 120px;
-  background: linear-gradient(to right, #35477d, #f67280);
+  background: linear-gradient(to right, $colorPrimary, $colorSecondary);
   -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.16);
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.16);
   border-radius: 20px;
   width: 100%;
   margin-bottom: 30px;
+
+  &-blank {
+    background: white;
+    box-shadow: none;
+  }
 }
 
 .decks {
@@ -26,11 +31,5 @@
 @media only screen and (min-width: 600px) {
   .Deck {
     width: 30%;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .Deck {
-    // width: 20%;
   }
 }

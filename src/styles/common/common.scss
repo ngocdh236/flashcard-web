@@ -1,0 +1,55 @@
+@import './variables.scss';
+
+.x-centered {
+  display: flex;
+  justify-content: center;
+}
+
+.y-centered {
+  display: flex;
+  align-items: center;
+}
+
+.xy-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border: none;
+  background: transparent;
+  &:focus {
+    outline: 0;
+  }
+}
+
+a,
+input,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  resize: none;
+  border: none;
+  background: inherit;
+}
+
+a {
+  color: $colorPrimary;
+
+  &:hover {
+    color: $colorSecondary;
+  }
+}
+
+.a-active {
+  color: $colorSecondary;
+}
+
+.vertical-line {
+  border-left: 1px solid $colorBorder;
+  width: 1px;
+  min-height: 75vh;
+}

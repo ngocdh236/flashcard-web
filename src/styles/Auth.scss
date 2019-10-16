@@ -23,19 +23,19 @@
 
   .button {
     &-login {
-      background: #35477d;
+      background: $colorPrimary;
       color: white;
     }
 
     &-register {
-      border: 2px solid #f67280;
-      color: #f67280;
+      border: 2px solid $colorSecondary;
+      color: $colorSecondary;
     }
 
     &-submit {
       width: 60%;
       color: white;
-      background: #f67280;
+      background: $colorSecondary;
     }
   }
 

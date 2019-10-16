@@ -6,9 +6,9 @@
   .input {
     display: grid;
     grid-template-columns: 15% 85%;
-    border: 2px solid #35477d;
+    border: 2px solid $colorPrimary;
     height: 60px;
-    color: #35477d;
+    color: $colorPrimary;
 
     &-icon {
       @extend %xy-centered;
