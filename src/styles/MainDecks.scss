@@ -1,1 +1,18 @@
 @import '../App.scss';
+
+.MainDecks {
+  .fa-arrow-left {
+    display: block;
+    &:hover {
+      color: $colorSecondary;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (min-height: 600px) {
+  .MainDecks {
+    .fa-arrow-left {
+      display: none;
+    }
+  }
+}

@@ -7,6 +7,7 @@ import logo from '../assets/logo.svg';
 import { AuthContext } from '../contexts/AuthContext';
 import Nav from './Nav';
 import LinkWithIcon from '../components/LinkWithIcon';
+import iconToggle from '../assets/iconToggle.svg';
 
 export default function Header() {
   const { authService } = React.useContext(AuthContext);
@@ -50,7 +51,7 @@ export default function Header() {
         data-toggle="collapse"
         data-target="#mobile-nav"
       >
-        <i className="fas fa-bars" />
+        <img src={iconToggle} alt="toggle"></img>
       </button>
 
       <div className="collapse navbar-collapse navbar-default" id="mobile-nav">

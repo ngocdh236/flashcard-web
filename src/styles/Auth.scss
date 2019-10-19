@@ -24,7 +24,6 @@
   .button {
     &-login {
       background: $colorPrimary;
-      color: white;
     }
 
     &-register {
@@ -34,7 +33,6 @@
 
     &-submit {
       width: 60%;
-      color: white;
       background: $colorSecondary;
     }
   }
