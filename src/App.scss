@@ -10,7 +10,6 @@
   .Header {
     width: 100%;
     padding: 5% 5%;
-    z-index: 1;
     background: white;
   }
 
@@ -23,7 +22,8 @@
     height: 60%;
     width: 100%;
     padding: 0 5%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 

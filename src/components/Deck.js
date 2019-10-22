@@ -1,29 +1,37 @@
-import React, { useState } from 'react'
-import classnames from 'classnames'
+import React, { useState } from 'react';
+import classnames from 'classnames';
 
-import '../styles/Deck.scss'
-import iconAdd from '../assets/iconAdd.svg'
+import '../styles/Deck.scss';
+import iconAdd from '../assets/iconAdd.svg';
 
-import DeckDetail from './DeckDetail'
+import DeckDetail from './DeckDetail';
 
 export default function Deck(props) {
-  const [showDetail, setShowDetail] = useState(false)
+  const { history, blankDeck, newDeck, deck } = props;
+  const [showDetail, setShowDetail] = useState(false);
 
-  function toggleCreateDeck() {
-    if (props.newDeck) {
-      setShowDetail(!showDetail)
+  const toggleCreateDeck = () => {
+    if (newDeck) {
+      setShowDetail(!showDetail);
     }
-  }
+  };
+
+  const onDeckClick = () => {
+    if (!newDeck && !blankDeck) history.push(`/decks/${deck.id}/edit`);
+  };
 
   return (
-    <div className={classnames('Deck', { 'Deck-blank': props.blankDeck })}>
+    <div
+      className={classnames('Deck', { 'Deck-blank': blankDeck })}
+      onClick={onDeckClick}
+    >
       <div
-        className='xy-centered'
+        className="xy-centered"
         style={{ width: '100%', height: '100%' }}
         onClick={toggleCreateDeck}
       >
-        {props.newDeck && <img src={iconAdd} alt='Add' />}
-        {!props.blankDeck && !props.newDeck && (
+        {newDeck && <img src={iconAdd} alt="Add" />}
+        {!blankDeck && !newDeck && (
           <span
             style={{
               color: 'white',
@@ -31,16 +39,16 @@ export default function Deck(props) {
               fontWeight: '600'
             }}
           >
-            {props.deck.name}
+            {deck.name}
           </span>
         )}
       </div>
       {showDetail ? <DeckDetail toggleCreateDeck={toggleCreateDeck} /> : null}
     </div>
-  )
+  );
 }
 
 Deck.defaultProps = {
   newDeck: false,
   blankDeck: false
-}
+};
