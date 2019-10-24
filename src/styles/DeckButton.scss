@@ -1,6 +1,6 @@
 @import '../App.scss';
 
-.Deck {
+.DeckButton {
   height: 120px;
   background: linear-gradient(to right, $colorPrimary, $colorSecondary);
   -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.16);
@@ -9,10 +9,28 @@
   border-radius: 20px;
   width: 45%;
   margin-bottom: 30px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
 
   &-blank {
     background: inherit;
     box-shadow: none;
+  }
+
+  &-card {
+    background: inherit;
+    box-shadow: none;
+    border: 1px solid $colorPrimary;
+    color: $colorPrimary;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .icon-switch {
+    position: absolute;
+    right: 6%;
+    bottom: 10%;
   }
 }
 
@@ -23,7 +41,7 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .Deck {
+  .DeckButton {
     width: 30%;
   }
 }
