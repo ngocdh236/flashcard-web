@@ -8,7 +8,7 @@ import Nav from './components/Nav';
 import Auth from './pages/Auth';
 import MainHome from './pages/MainHome';
 import MainDecks from './pages/MainDecks';
-import DeckEdit from './pages/DeckEdit';
+import DeckDetail from './pages/DeckDetail';
 import setAuthToken from './services/setAuthToken';
 import { AuthContext } from './contexts/AuthContext';
 import { isEmpty } from './utils/isEmpty';
@@ -56,12 +56,20 @@ export default function App(props) {
 
         <PrivateRoute path="/(|decks|categories|setting)" component={Header} />
 
-        <PrivateRoute path="/(|decks|categories|setting)" component={Nav} />
+        <PrivateRoute
+          exact
+          path="/(|decks|categories|setting)"
+          component={Nav}
+        />
 
         <PrivateRoute exact path="/" basename="/" component={MainHome} />
         <PrivateRoute exact path="/decks" component={MainDecks} />
 
-        <PrivateRoute exact path="/decks/:id/edit" component={DeckEdit} />
+        <PrivateRoute
+          exact
+          path="/decks/:id/(cards|test|progress|edit)"
+          component={DeckDetail}
+        />
       </div>
     </Router>
   );
