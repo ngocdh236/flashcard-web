@@ -13,7 +13,7 @@ export const useService = (state, dispatch) => {
   const setUser = user => {
     dispatch({
       type: Types.SET_USER,
-      user,
+      user
     });
   };
 
@@ -50,6 +50,6 @@ export const useService = (state, dispatch) => {
     login,
     remove,
     setUser,
-    logout,
+    logout
   };
 };
