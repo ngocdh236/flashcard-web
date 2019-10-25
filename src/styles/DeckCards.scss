@@ -1,1 +1,19 @@
 @import '../App.scss';
+
+.DeckCards {
+  position: absolute;
+  height: 70%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 5% 5%;
+}
+
+@media only screen and (min-width: 992px) {
+  .DeckCards {
+    left: 25%;
+    width: 70%;
+    height: 60%;
+    padding: 0 5%;
+  }
+}
