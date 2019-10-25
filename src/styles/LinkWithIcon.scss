@@ -9,7 +9,7 @@
     @extend %xy-centered;
   }
 
-  .nav-link {
+  span {
     grid-column-start: 3;
   }
 }
@@ -19,7 +19,7 @@
     grid-template-columns: 25% 70%;
     width: 100%;
 
-    .nav-link {
+    span {
       grid-column-start: 2;
     }
   }
