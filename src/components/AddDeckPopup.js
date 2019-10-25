@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import '../styles/DeckDetail.scss';
+import '../styles/AddDeckPopup.scss';
 
 import { DataContext } from '../contexts/DataContext';
 
-export default function DeckDetail(props) {
+export default function AddDeckPopup(props) {
   const { deckService } = React.useContext(DataContext);
 
   const [name, setName] = useState('');
@@ -18,7 +18,7 @@ export default function DeckDetail(props) {
     e.preventDefault();
 
     const deck = {
-      name: name,
+      name: name
     };
 
     deckService.create(deck);
@@ -26,7 +26,7 @@ export default function DeckDetail(props) {
   }
 
   return (
-    <div className="DeckDetail">
+    <div className="AddDeckPopup">
       <div className="popup-container" onClick={props.toggleCreateDeck} />
       <div className="popup">
         <h4>Create new deck</h4>

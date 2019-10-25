@@ -59,7 +59,6 @@ export default function Header() {
           {items.map(item => (
             <LinkWithIcon
               key={item.id}
-              id={item.name}
               icon={item.icon}
               link={item.link}
               name={item.name}

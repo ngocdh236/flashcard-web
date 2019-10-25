@@ -2,7 +2,7 @@
 @import './styles/common/extensions.scss';
 @import './styles/common/mixins.scss';
 @import './styles/common/variables.scss';
-@import './styles/popup.scss';
+@import './styles/common/popup.scss';
 
 .App {
   color: $colorPrimary;
@@ -19,11 +19,12 @@
 
   .main {
     position: absolute;
-    height: 60%;
+    height: 80%;
     width: 100%;
     padding: 0 5%;
     overflow-y: auto;
     overflow-x: hidden;
+    margin-top: 15px;
   }
 }
 
@@ -34,12 +35,21 @@
       position: fixed;
       padding-left: 5%;
       width: 25%;
+      min-height: 60%;
+      border-right: 1px solid $colorBorder;
     }
 
     .main {
+      height: 60%;
       width: 70%;
-      padding: 0 5% 5% 5%;
       left: 25%;
+      margin: 0;
+    }
+
+    .Header {
+      #Setting {
+        display: none;
+      }
     }
   }
 }

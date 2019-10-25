@@ -1,32 +1,32 @@
 @import '../App.scss';
 
 .DeckEdit {
-  h5,
-  h6 {
-    font-weight: bolder;
-    margin-left: 5%;
-  }
+  position: absolute;
+  height: 70%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 5%;
 
-  h5 {
-    font-size: 150%;
-    color: $colorSecondary;
-  }
   h6 {
+    position: sticky;
+    top: 0;
+    font-weight: bolder;
+    margin-bottom: 5%;
     font-size: 120%;
     color: $colorPrimary;
   }
 
-  .cards {
+  .cards-edit {
+    padding-top: 1%;
     position: absolute;
-    height: 60%;
-    width: 100%;
+    width: 90%;
+    height: 70%;
     overflow-y: auto;
     overflow-x: hidden;
 
-    .card {
-      border: none;
-      margin: 5%;
-      height: 30%;
+    .card-edit {
+      margin: 0 2% 5% 1%;
       -webkit-box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.16);
       -moz-box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.16);
       box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.16);
@@ -38,9 +38,11 @@
       input {
         &[name='key'] {
           color: $colorPrimary;
+          margin-bottom: 10px;
         }
 
         &[name='value'] {
+          margin-top: 10px;
           color: $colorSecondary;
         }
       }
@@ -55,7 +57,6 @@
     button {
       border-radius: 50px;
       width: 100px;
-
       height: 40px;
     }
 
@@ -71,21 +72,61 @@
   }
 }
 
-@media only screen and (min-height: 600px) {
+@media only screen and (min-height: 768px) {
   .DeckEdit {
-    .cards {
-      height: 65%;
+    .cards-edit {
+      height: 80%;
     }
   }
 }
 
-@media only screen and (min-height: 768px) {
+@media only screen and (min-width: 600px) {
   .DeckEdit {
-    .cards {
-      height: 70%;
-      .card {
-        height: 25%;
+    .cards-edit {
+      .card-edit {
+        box-shadow: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 5%;
+        padding: 0;
+
+        .horizontal-line {
+          display: none;
+        }
+
+        input {
+          width: 45%;
+          padding-left: 8px;
+          height: 70px;
+
+          &[name='key'] {
+            margin: 0;
+            border: 1px solid $colorPrimary;
+          }
+
+          &[name='value'] {
+            margin: 0;
+            border: 1px solid $colorSecondary;
+          }
+        }
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .DeckEdit {
+    left: 25%;
+    width: 70%;
+    height: 60%;
+
+    .cards-edit {
+      height: 80%;
+    }
+
+    .buttons {
+      bottom: 0;
     }
   }
 }

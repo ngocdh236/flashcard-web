@@ -1,25 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import classnames from 'classnames';
 
 import '../styles/LinkWithIcon.scss';
 
-export default function LinkWithIcon({ id, icon, link, name, onClick }) {
+export default function LinkWithIcon({ icon, link, name, onClick }) {
   return (
-    <div id={id} className="LinkWithIcon">
+    <NavLink
+      className="LinkWithIcon nav-link nav-item-bold"
+      id={name}
+      activeClassName="a-active"
+      exact
+      to={link}
+      onClick={onClick}
+    >
       <div className="icon">
         <img src={icon} alt="" />
       </div>
-
-      <NavLink
-        className="nav-link nav-item-bold"
-        activeClassName="a-active"
-        exact
-        to={link}
-        onClick={onClick}
-      >
-        {name}
-      </NavLink>
-    </div>
+      <span>{name}</span>
+    </NavLink>
   );
 }
 

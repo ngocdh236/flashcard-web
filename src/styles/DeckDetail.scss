@@ -1,25 +1,65 @@
 @import '../App.scss';
 
 .DeckDetail {
-  .popup {
-    input {
-      border: 1px solid $colorBorder;
-      height: 60px;
-      padding: 20px;
-      margin-bottom: 50px;
-    }
+  .deck-name {
+    @extend %y-centered;
+    font-weight: bolder;
+    margin: 5% 0 2% 5%;
+    font-size: 150%;
+    color: $colorSecondary;
+  }
+
+  .DeckNav {
+    display: flex;
+    @extend %y-centered;
+    justify-content: space-between;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.16);
+    height: 60px;
 
     p {
-      font-size: 24px;
-      font-weight: bold;
+      margin-left: 5%;
       color: $colorSecondary;
     }
 
-    button {
-      width: 160px;
-      height: 50px;
-      border-radius: 30px;
-      background: $colorPrimary;
+    .links {
+      display: flex;
+      .LinkWithIcon {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (min-height: 600px) {
+  .DeckDetail {
+    .deck-name {
+      display: none;
+    }
+
+    .DeckNav {
+      display: block;
+      height: 60%;
+      position: fixed;
+      padding-left: 5%;
+      width: 25%;
+      box-shadow: none;
+      border-right: 1px solid $colorBorder;
+
+      p {
+        display: none;
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        .LinkWithIcon {
+          span {
+            display: block;
+          }
+        }
+      }
     }
   }
 }
