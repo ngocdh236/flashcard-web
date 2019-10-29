@@ -14,12 +14,10 @@ export default function CardButton({
   isCard,
   card
 }) {
-  const [showDetail, setShowDetail] = useState(false);
   const [flipped, setFlipped] = useState(false);
 
   const toggleCreateCard = () => {
     if (newCard) {
-      setShowDetail(!showDetail);
     }
   };
 
@@ -54,7 +52,6 @@ export default function CardButton({
           <img className="icon-flip" src={iconFlip} alt="Switch" />
         </button>
       )}
-      {showDetail ? <AddDeckPopup toggleCreateCard={toggleCreateCard} /> : null}
     </div>
   );
 }

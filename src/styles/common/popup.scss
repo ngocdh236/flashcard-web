@@ -1,6 +1,7 @@
 @import './mixins.scss';
 
 .popup {
+  z-index: 1;
   &-container {
     position: fixed;
     background: rgba(108, 91, 122, 0.5);

@@ -1,33 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import DeckNav from '../components/DeckNav';
 import DeckCards from '../components/DeckCards';
 import DeckEdit from '../components/DeckEdit';
+import { DataContext } from '../contexts/DataContext';
 
 import iconEdit from '../assets/iconEdit.svg';
 import '../styles/DeckDetail.scss';
 
 export default function DeckDetail(props) {
-  const { match } = props;
+  const { match, history } = props;
+  const { data, deckService } = useContext(DataContext);
   const [deck, setDeck] = useState({
-    name: 'Fake',
-    cards: [
-      { id: 0, key: 'Hello', value: 'Xin chao' },
-      { id: 1, key: 'Hello', value: 'Xin chao' },
-      { id: 2, key: 'Hello', value: 'Xin chao' },
-      { id: 3, key: 'Hello', value: 'Xin chao' },
-      { id: 4, key: 'Hello', value: 'Xin chao' },
-      { id: 5, key: 'Hello', value: 'Xin chao' },
-      { id: 6, key: 'Hello', value: 'Xin chao' },
-      { id: 7, key: 'Hello', value: 'Xin chao' },
-      { id: 8, key: 'Hello', value: 'Xin chao' },
-      { id: 9, key: 'Hello', value: 'Xin chao' },
-      { id: 10, key: 'Hello', value: 'Xin chao' },
-      { id: 11, key: 'Hello', value: 'Xin chao' },
-      { id: 12, key: 'Hello', value: 'Xin chao' }
-    ]
+    name: '',
+    cards: []
   });
+
   const [currentLink, setCurrentLink] = useState('');
+
+  useEffect(() => {
+    const deckId = match.params.id;
+
+    const fetchDeck = async id => {
+      let deckItem = {};
+      await deckService.getById(id).then(res => {
+        deckItem = res.data;
+      });
+
+      setDeck(deckItem);
+    };
+
+    const item =
+      data.decks.find(deckItem => deckItem.id === deckId) ||
+      data.recentDecks.find(deckItem => deckItem.id === deckId);
+
+    if (item) {
+      setDeck(item);
+    } else {
+      fetchDeck(deckId);
+    }
+  }, []);
 
   const CurrentNav = () => {
     switch (match.params[0]) {
@@ -45,7 +57,14 @@ export default function DeckDetail(props) {
       }
       case 'edit': {
         setCurrentLink('Edit');
-        return <DeckEdit deck={deck} />;
+        return (
+          <DeckEdit
+            deck={deck}
+            setDeck={setDeck}
+            deckService={deckService}
+            history={history}
+          />
+        );
       }
       default:
         return <></>;

@@ -1,27 +1,42 @@
-import React, { useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import '../styles/MainHome.scss';
 
-import Deck from '../components/Deck';
+import DeckButton from '../components/DeckButton';
 import { DataContext } from '../contexts/DataContext';
 
-export default function MainHome() {
-  const { data, deckService } = React.useContext(DataContext);
+export default function MainHome({ history }) {
+  const { data, deckService } = useContext(DataContext);
 
   useEffect(() => {
-    deckService.getAll();
+    if (!data.recentDecksFetched) deckService.getAll('-updatedAt');
+    if (!data.decksFetched) deckService.getAll('name');
   }, []);
 
-  const allDecks = data.decks.map(deck => <Deck key={deck._id} deck={deck} />);
+  const recentDecks = data.recentDecks
+    .slice(0, 3)
+    .map(deck => (
+      <DeckButton
+        key={deck.id}
+        deck={deck}
+        history={history}
+        onClick={() => history.push(`/decks/${deck.id}/cards`)}
+      />
+    ));
 
   return (
     <div className="MainHome main">
       <h4>Create new deck</h4>
-      <Deck newDeck={true} />
+      <DeckButton newDeck={true} />
       <h4>Recent</h4>
-      <div className="decks">{allDecks}</div>
-      <Link className="ml-auto">View all</Link>
+      <div className="decks">
+        {recentDecks}
+        {recentDecks.length % 3 !== 0 && <DeckButton blankDeck={true} />}
+      </div>
+
+      <Link to="/decks">View all</Link>
     </div>
   );
 }

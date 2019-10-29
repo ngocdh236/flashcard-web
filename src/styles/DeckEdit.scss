@@ -46,12 +46,30 @@
           color: $colorSecondary;
         }
       }
+
+      .input-value {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        input {
+          width: 100%;
+        }
+
+        span {
+          color: $colorSecondary;
+        }
+      }
+    }
+
+    span {
+      align-self: flex-end;
     }
   }
 
   .buttons {
     position: absolute;
-    bottom: 5%;
+    bottom: 8%;
     right: 5%;
 
     button {
@@ -69,6 +87,19 @@
         background: $colorPrimary;
       }
     }
+  }
+
+  .button-delete {
+    position: absolute;
+    bottom: 1%;
+    right: 5%;
+  }
+
+  #icon-add {
+    border: 1px solid $colorPrimary;
+    width: 45%;
+    padding: 10px;
+    @extend %xy-centered;
   }
 }
 
@@ -110,6 +141,10 @@
             border: 1px solid $colorSecondary;
           }
         }
+
+        .input-value {
+          width: 45%;
+        }
       }
     }
   }
@@ -121,12 +156,14 @@
     width: 70%;
     height: 60%;
 
-    .cards-edit {
-      height: 80%;
-    }
-
     .buttons {
       bottom: 0;
+    }
+
+    .button-delete {
+      position: absolute;
+      bottom: 1%;
+      left: 8%;
     }
   }
 }
