@@ -1,5 +1,4 @@
 import { Types } from './actionTypes';
-import '../extensions/Array';
 
 const initialState = {
   decks: [],
