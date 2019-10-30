@@ -19,7 +19,10 @@ export default function MainDecks({ history }) {
 
   return (
     <div className="MainDecks main">
-      <i className="fas fa-arrow-left mb-4"></i>
+      <i
+        className="fas fa-arrow-left mb-4"
+        onClick={() => history.goBack()}
+      ></i>
       <div className="decks">
         {allDecks}
         <DeckButton newDeck={true} />

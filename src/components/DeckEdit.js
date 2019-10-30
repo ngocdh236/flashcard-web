@@ -73,7 +73,10 @@ export default function DeckEdit({ history, deck, setDeck, deckService }) {
         <button className="button-cancel">Cancel</button>
         <button
           className="button-done"
-          onClick={() => deckService.update(deck)}
+          onClick={() => {
+            deckService.update(deck);
+            history.push(`/decks/${deck.id}/cards`);
+          }}
         >
           Done
         </button>

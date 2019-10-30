@@ -33,7 +33,7 @@ export const useService = (state, dispatch) => {
   const update = deck => {
     customAxios
       .put(deckUrl, deck)
-      .then(res => dispatch({ type: Types.UPDATE_DECK, deck: res.data }))
+      .then(res => dispatch({ type: Types.UPDATE_DECK, deck }))
       .catch(err => console.log(err));
   };
 

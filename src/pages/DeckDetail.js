@@ -45,7 +45,7 @@ export default function DeckDetail(props) {
     switch (match.params[0]) {
       case 'cards': {
         setCurrentLink(`All cards (${deck.cards.length})`);
-        return <DeckCards deck={deck} />;
+        return <DeckCards deck={deck} history={history} />;
       }
       case 'test': {
         setCurrentLink('Test');
