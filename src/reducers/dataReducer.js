@@ -37,7 +37,10 @@ function reducer(state = initialState, action) {
     case Types.DELETE_DECK:
       return {
         ...state,
-        decks: state.decks.filter(deckItem => deckItem.id !== deckId)
+        decks: state.decks.filter(deckItem => deckItem.id !== deckId),
+        recentDecks: state.recentDecks.filter(
+          deckItem => deckItem.id !== deckId
+        )
       };
 
     default:
