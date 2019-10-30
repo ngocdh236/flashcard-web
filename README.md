@@ -2,7 +2,7 @@
 
 > A flashcard web application
 
-Check it out [here](https://flashcard-web.netlify.com)
+Check it out [here](https://flashcard-web.now.sh)
 
 ## Features
 
