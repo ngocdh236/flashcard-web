@@ -30,13 +30,7 @@ export const useService = (state, dispatch) => {
 
   const getById = id => customAxios.get(`${deckUrl}/${id}`);
 
-  const update = deck => {
-    customAxios
-      .put(deckUrl, deck)
-      .then(res => dispatch({ type: Types.UPDATE_DECK, deck }))
-      .catch(err => console.log(err));
-  };
-
+  const update = deck => customAxios.put(deckUrl, deck);
   const remove = deckId => {
     customAxios
       .delete(`${deckUrl}/${deckId}`)

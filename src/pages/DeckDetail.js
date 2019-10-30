@@ -11,7 +11,7 @@ import '../styles/DeckDetail.scss';
 
 export default function DeckDetail(props) {
   const { match, history } = props;
-  const { data, deckService } = useContext(DataContext);
+  const { data, deckService, dispatchData } = useContext(DataContext);
   const [deck, setDeck] = useState({
     name: '',
     cards: []
@@ -31,9 +31,7 @@ export default function DeckDetail(props) {
       setDeck(deckItem);
     };
 
-    const item =
-      data.decks.find(deckItem => deckItem.id === deckId) ||
-      data.recentDecks.find(deckItem => deckItem.id === deckId);
+    const item = data.decks.find(deckItem => deckItem.id === deckId);
 
     if (item) {
       setDeck(item);
@@ -64,6 +62,7 @@ export default function DeckDetail(props) {
             setDeck={setDeck}
             deckService={deckService}
             history={history}
+            dispatchData={dispatchData}
           />
         );
       }

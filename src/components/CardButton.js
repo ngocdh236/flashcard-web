@@ -19,6 +19,14 @@ export default function CardButton({
     }
   };
 
+  const onCardClick = () => {
+    if (newCard) {
+      onClick();
+    } else {
+      setFlipped(!flipped);
+    }
+  };
+
   return (
     <div
       className={classnames(
@@ -26,7 +34,7 @@ export default function CardButton({
         { 'CardButton-blank': blankCard },
         { 'CardButton-flipped': flipped }
       )}
-      onClick={onClick}
+      onClick={onCardClick}
     >
       <div className="CardButton-inner" onClick={toggleCreateCard}>
         {newCard && (

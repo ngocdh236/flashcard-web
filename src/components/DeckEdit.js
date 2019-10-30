@@ -1,27 +1,50 @@
 import React, { useState } from 'react';
 
+import { Types } from '../reducers/actionTypes';
+
 import '../styles/DeckEdit.scss';
 
-export default function DeckEdit({ history, deck, setDeck, deckService }) {
+export default function DeckEdit({
+  history,
+  deck,
+  setDeck,
+  deckService,
+  dispatchData
+}) {
   const [newCard, setNewCard] = useState({
     id: new Date(),
     key: '',
     value: ''
   });
-  const [cards, setCards] = useState(deck.cards);
+  const [currentDeck, setCurrentDeck] = useState({
+    ...deck,
+    name: deck.name,
+    cards: [...deck.cards]
+  });
 
   const handleAddCard = e => {
-    if (e.key === 'Enter')
-      setDeck({ ...deck, cards: [...deck.cards, newCard] });
+    if (e.key === 'Enter') {
+      setCurrentDeck({
+        ...currentDeck,
+        cards: [...currentDeck.cards, newCard]
+      });
+
+      setNewCard({
+        ...newCard,
+        key: '',
+        value: ''
+      });
+    }
   };
 
   const handleEditCard = (e, cardId) => {
-    setCards(
-      cards.map(card => {
+    setCurrentDeck({
+      ...currentDeck,
+      cards: currentDeck.cards.map(card => {
         if (card.id === cardId) card[e.target.name] = e.target.value;
         return card;
       })
-    );
+    });
   };
 
   const handleDeleteDeck = () => {
@@ -33,7 +56,7 @@ export default function DeckEdit({ history, deck, setDeck, deckService }) {
     <div className="DeckEdit">
       <h6>Create cards</h6>
       <div className="cards-edit">
-        {deck.cards.map(card => (
+        {currentDeck.cards.map(card => (
           <div key={card.id} className="card-edit">
             <input
               value={card.key}
@@ -69,11 +92,20 @@ export default function DeckEdit({ history, deck, setDeck, deckService }) {
         </div>
       </div>
       <div className="buttons">
-        <button className="button-cancel">Cancel</button>
+        <button
+          className="button-cancel"
+          onClick={() => history.push(`/decks/${deck.id}/cards`)}
+        >
+          Cancel
+        </button>
         <button
           className="button-done"
           onClick={() => {
-            deckService.update(deck);
+            deckService.update(currentDeck).then(res => {
+              dispatchData({ type: Types.UPDATE_DECK, deck });
+              setDeck(currentDeck);
+            });
+
             history.push(`/decks/${deck.id}/cards`);
           }}
         >

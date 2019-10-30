@@ -1,23 +1,23 @@
-import React from 'react'
+import React from 'react';
 
-import { initialState, reducer } from '../reducers/dataReducer'
-import { useService } from '../services/deckService'
+import { initialState, reducer } from '../reducers/dataReducer';
+import { useService } from '../services/deckService';
 
-export const DataContext = React.createContext()
+export const DataContext = React.createContext();
 
 export function DataProvider(props) {
-  const [data, dataDispatch] = React.useReducer(reducer, initialState)
-  const deckService = useService(data, dataDispatch)
+  const [data, dispatchData] = React.useReducer(reducer, initialState);
+  const deckService = useService(data, dispatchData);
 
   return (
     <DataContext.Provider
       value={{
         data,
-        dataDispatch,
+        dispatchData,
         deckService
       }}
     >
       {props.children}
     </DataContext.Provider>
-  )
+  );
 }
