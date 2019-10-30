@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import '../styles/MainHome.scss';
@@ -11,7 +11,7 @@ export default function MainHome({ history }) {
   const { data, deckService } = useContext(DataContext);
 
   useEffect(() => {
-    if (!data.recentDecksFetched) deckService.getAll('-updatedAt');
+    deckService.getAll('-updatedAt');
     if (!data.decksFetched) deckService.getAll('name');
   }, []);
 

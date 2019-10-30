@@ -3,8 +3,6 @@ import React from 'react';
 import '../styles/Nav.scss';
 import LinkWithIcon from './LinkWithIcon';
 import ava from '../assets/ava.svg';
-import iconDecks from '../assets/iconDecks.svg';
-import iconSetting from '../assets/iconSetting.svg';
 
 export default function Nav() {
   const items = [

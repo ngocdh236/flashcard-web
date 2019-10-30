@@ -5,7 +5,6 @@ import '../styles/Header.scss';
 import logo from '../assets/logo.svg';
 
 import { AuthContext } from '../contexts/AuthContext';
-import Nav from './Nav';
 import LinkWithIcon from '../components/LinkWithIcon';
 import iconToggle from '../assets/iconToggle.svg';
 

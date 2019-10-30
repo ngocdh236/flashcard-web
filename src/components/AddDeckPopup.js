@@ -8,7 +8,6 @@ export default function AddDeckPopup(props) {
   const { deckService } = React.useContext(DataContext);
 
   const [name, setName] = useState('');
-  const [category, setCategory] = useState({});
 
   function onChange(e) {
     setName(e.target.value);
@@ -33,7 +32,7 @@ export default function AddDeckPopup(props) {
         <p>Name</p>
         <input name="name" value={name} onChange={onChange} />
         <p>Category</p>
-        <input name="category" value={category.name} onChange={onChange} />
+        <input name="category" onChange={onChange} />
         <button onClick={onCreateClick}>Create</button>
       </div>
     </div>

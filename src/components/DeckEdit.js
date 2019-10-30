@@ -1,7 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import '../styles/DeckEdit.scss';
-import iconAddPrimary from '../assets/iconAddPrimary.svg';
 
 export default function DeckEdit({ history, deck, setDeck, deckService }) {
   const [newCard, setNewCard] = useState({

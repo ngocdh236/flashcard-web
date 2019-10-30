@@ -5,8 +5,6 @@ import '../styles/CardButton.scss';
 import iconAddPrimary from '../assets/iconAddPrimary.svg';
 import iconFlip from '../assets/iconFlip.svg';
 
-import AddDeckPopup from './AddDeckPopup';
-
 export default function CardButton({
   onClick,
   blankCard,
