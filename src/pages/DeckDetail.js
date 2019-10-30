@@ -31,7 +31,9 @@ export default function DeckDetail(props) {
       setDeck(deckItem);
     };
 
-    const item = data.decks.find(deckItem => deckItem.id === deckId);
+    const item =
+      data.decks.find(deckItem => deckItem.id === deckId) ||
+      data.recentDecks.find(deckItem => deckItem.id === deckId);
 
     if (item) {
       setDeck(item);

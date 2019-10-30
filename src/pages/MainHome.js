@@ -11,8 +11,7 @@ export default function MainHome({ history }) {
   const { data, deckService } = useContext(DataContext);
 
   useEffect(() => {
-    deckService.getAll('-updatedAt');
-    if (!data.decksFetched) deckService.getAll('name');
+    if (!data.recentDecksFetched) deckService.getAll('-updatedAt');
   }, []);
 
   const recentDecks = data.recentDecks

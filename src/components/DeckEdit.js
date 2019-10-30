@@ -102,7 +102,7 @@ export default function DeckEdit({
           className="button-done"
           onClick={() => {
             deckService.update(currentDeck).then(res => {
-              dispatchData({ type: Types.UPDATE_DECK, deck });
+              dispatchData({ type: Types.UPDATE_DECK, deck: currentDeck });
               setDeck(currentDeck);
             });
 

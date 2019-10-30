@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import '../styles/MainDecks.scss';
 
@@ -7,7 +7,11 @@ import DeckButton from '../components/DeckButton';
 import { DataContext } from '../contexts/DataContext';
 
 export default function MainDecks({ history }) {
-  const { data } = React.useContext(DataContext);
+  const { data, deckService } = React.useContext(DataContext);
+
+  useEffect(() => {
+    if (!data.decksFetched) deckService.getAll('name');
+  }, []);
 
   const allDecks = data.decks.map(deck => (
     <DeckButton
