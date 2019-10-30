@@ -20,7 +20,8 @@ function reducer(state = initialState, action) {
     case Types.CREATE_DECK: {
       return {
         ...state,
-        decks: [...state.decks, deck]
+        decks: [...state.decks, deck],
+        recentDecks: [deck, ...state.recentDecks]
       };
     }
 
