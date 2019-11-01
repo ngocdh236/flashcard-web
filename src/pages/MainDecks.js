@@ -29,7 +29,7 @@ export default function MainDecks({ history }) {
       ></i>
       <div className="decks">
         {allDecks}
-        <DeckButton newDeck={true} />
+        <DeckButton newDeck={true} history={history} />
         {allDecks.length % 3 !== 0 && <DeckButton blankDeck={true} />}
       </div>
     </div>

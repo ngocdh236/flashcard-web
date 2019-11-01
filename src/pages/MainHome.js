@@ -28,7 +28,7 @@ export default function MainHome({ history }) {
   return (
     <div className="MainHome main">
       <h4>Create new deck</h4>
-      <DeckButton newDeck={true} />
+      <DeckButton newDeck={true} history={history} />
       <h4>Recent</h4>
       <div className="decks">
         {recentDecks}

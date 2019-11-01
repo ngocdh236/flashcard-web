@@ -14,7 +14,9 @@ export default function DeckCards({ deck, history }) {
         {allCards}
         <CardButton
           newCard={true}
-          onClick={() => history.push(`/decks/${deck.id}/edit`)}
+          onClick={() =>
+            history.push(`/decks/${deck.id}/edit`, { addCard: true })
+          }
         />
         {allCards.length % 3 !== 0 && <CardButton blankCard={true} />}
       </div>

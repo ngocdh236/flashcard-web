@@ -4,12 +4,7 @@ import { Types } from '../reducers/actionTypes';
 export const useService = (state, dispatch) => {
   const deckUrl = '/decks';
 
-  const create = deck => {
-    customAxios
-      .post(deckUrl, deck)
-      .then(res => dispatch({ type: Types.CREATE_DECK, deck: res.data }))
-      .catch(err => console.log(err));
-  };
+  const create = deck => customAxios.post(deckUrl, deck);
 
   const getAll = field => {
     var type;

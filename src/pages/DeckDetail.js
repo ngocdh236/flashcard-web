@@ -75,10 +75,15 @@ export default function DeckDetail(props) {
 
   return (
     <div className="DeckDetail">
+      <span className="link">
+        {deck.category && `${deck.category} >`} {deck.name}
+      </span>
       <DeckNav className="aside" deck={deck} currentLink={currentLink} />
-      <div className="deck-name">
-        <h5>{deck.name}</h5>
-        <img src={iconEdit} alt="Edit"></img>
+      <div className="name">
+        <input value={deck.name} disabled={match.params[0] !== 'edit'}></input>
+        {match.params[0] === 'edit' && (
+          <img src={iconEdit} alt="Edit" className="ml-2"></img>
+        )}
       </div>
       <CurrentNav />
     </div>

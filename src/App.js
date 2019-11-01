@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 
@@ -16,7 +16,7 @@ import { isEmpty } from './utils/isEmpty';
 import './App.scss';
 
 export default function App(props) {
-  const { auth, authService } = React.useContext(AuthContext);
+  const { auth, authService } = useContext(AuthContext);
 
   const token = localStorage.token;
   let user = {};

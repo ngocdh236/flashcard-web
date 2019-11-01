@@ -6,7 +6,7 @@ import '../styles/LinkWithIcon.scss';
 export default function LinkWithIcon({ icon, link, name, onClick }) {
   return (
     <NavLink
-      className="LinkWithIcon nav-link nav-item-bold"
+      className="LinkWithIcon"
       id={name}
       activeClassName="a-active"
       exact

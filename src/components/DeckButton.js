@@ -6,7 +6,13 @@ import iconAdd from '../assets/iconAdd.svg';
 
 import AddDeckPopup from './AddDeckPopup';
 
-export default function DeckButton({ onClick, blankDeck, newDeck, deck }) {
+export default function DeckButton({
+  onClick,
+  blankDeck,
+  newDeck,
+  deck,
+  history
+}) {
   const [showDetail, setShowDetail] = useState(false);
 
   const toggleCreateDeck = () => {
@@ -29,7 +35,9 @@ export default function DeckButton({ onClick, blankDeck, newDeck, deck }) {
         {!blankDeck && !newDeck && <span>{deck.name}</span>}
       </div>
 
-      {showDetail ? <AddDeckPopup toggleCreateDeck={toggleCreateDeck} /> : null}
+      {showDetail ? (
+        <AddDeckPopup history={history} toggleCreateDeck={toggleCreateDeck} />
+      ) : null}
     </div>
   );
 }

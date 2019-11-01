@@ -1,1 +1,9 @@
 @import '../App.scss';
+
+.DeckNav {
+  .LinkWithIcon {
+    .icon {
+      justify-content: flex-start;
+    }
+  }
+}

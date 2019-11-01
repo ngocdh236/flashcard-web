@@ -25,6 +25,10 @@
     overflow-y: auto;
     overflow-x: hidden;
 
+    #card-description {
+      display: none;
+    }
+
     .card-edit {
       margin: 0 2% 5% 1%;
       -webkit-box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.16);
@@ -114,12 +118,29 @@
 @media only screen and (min-width: 600px) {
   .DeckEdit {
     .cards-edit {
+      #card-description {
+        display: flex;
+        input {
+          font-weight: bolder;
+          font-size: 110%;
+          height: auto;
+          padding: 0;
+          &[name='front'] {
+            color: $colorPrimary;
+          }
+
+          &[name='back'] {
+            color: $colorSecondary;
+          }
+        }
+      }
+
       .card-edit {
         box-shadow: none;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-bottom: 5%;
+        margin-bottom: 3%;
         padding: 0;
 
         .horizontal-line {

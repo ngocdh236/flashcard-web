@@ -1,12 +1,19 @@
 @import '../App.scss';
 
 .DeckDetail {
-  .deck-name {
+  .link {
+    display: none;
+  }
+
+  .name {
     @extend %y-centered;
-    font-weight: bolder;
     margin: 5% 0 2% 5%;
     font-size: 150%;
-    color: $colorSecondary;
+    input {
+      max-width: 30%;
+      font-weight: bolder;
+      color: $colorSecondary;
+    }
   }
 
   .DeckNav {
@@ -34,8 +41,15 @@
 
 @media only screen and (min-width: 992px) and (min-height: 600px) {
   .DeckDetail {
-    .deck-name {
+    .name {
       display: none;
+    }
+
+    .link {
+      display: block;
+      margin: 0 0 3% 5%;
+      font-size: 150%;
+      color: $colorTextSecondary;
     }
 
     .DeckNav {
