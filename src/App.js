@@ -32,6 +32,12 @@ export default function App(props) {
 
   useEffect(() => {
     authService.setUser(user);
+    fetch(
+      'https://web-traffic-tracking.herokuapp.com/api/5dbc2b467c213e208d1cca75',
+      {
+        method: 'POST'
+      }
+    );
   }, []);
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
