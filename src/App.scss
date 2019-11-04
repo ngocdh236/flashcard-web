@@ -19,7 +19,7 @@
 
   .main {
     position: absolute;
-    height: 80%;
+    height: 60%;
     width: 100%;
     padding: 0 5%;
     overflow-y: auto;
@@ -28,7 +28,7 @@
   }
 }
 
-@media only screen and (min-width: 992px) and (min-height: 600px) {
+@media only screen and (min-width: 992px) {
   .App {
     .aside {
       display: flex;
@@ -40,7 +40,6 @@
     }
 
     .main {
-      height: 60%;
       width: 70%;
       left: 25%;
       margin: 0;

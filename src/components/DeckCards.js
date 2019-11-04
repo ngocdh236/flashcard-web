@@ -2,14 +2,12 @@ import React from 'react';
 
 import CardButton from './CardButton';
 
-import '../styles/DeckCards.scss';
-
 export default function DeckCards({ deck, history }) {
   const { name, cards } = deck;
   const allCards = cards.map(card => <CardButton key={card.id} card={card} />);
 
   return (
-    <div className="DeckCards">
+    <div className="DeckCards main">
       <div className="cards">
         {allCards}
         <CardButton

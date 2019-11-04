@@ -76,7 +76,7 @@ export default function DeckEdit({
   }, []);
 
   return (
-    <div className="DeckEdit">
+    <div className="DeckEdit main">
       <h6>Cards</h6>
 
       <div className="cards-edit">
