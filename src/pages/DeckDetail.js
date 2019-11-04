@@ -8,6 +8,7 @@ import { DataContext } from '../contexts/DataContext';
 
 import iconEdit from '../assets/iconEdit.svg';
 import '../styles/DeckDetail.scss';
+import DeckTest from '../components/DeckTest';
 
 export default function DeckDetail(props) {
   const { match, history } = props;
@@ -50,7 +51,7 @@ export default function DeckDetail(props) {
       }
       case 'test': {
         setCurrentLink('Test');
-        return <div></div>;
+        return <DeckTest deck={deck} />;
       }
       case 'progress': {
         setCurrentLink('Progress');

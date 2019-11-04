@@ -24,15 +24,15 @@ export default function DeckNav({ currentLink, deck, match }) {
       link: `/decks/${deck.id}/test`,
       name: 'Test'
     },
-    {
-      id: 2,
-      icon:
-        currentLink === 'Progress'
-          ? require('../assets/iconProgressActive.svg')
-          : require('../assets/iconProgress.svg'),
-      link: `/decks/${deck.id}/progress`,
-      name: 'Progress'
-    },
+    // {
+    //   id: 2,
+    //   icon:
+    //     currentLink === 'Progress'
+    //       ? require('../assets/iconProgressActive.svg')
+    //       : require('../assets/iconProgress.svg'),
+    //   link: `/decks/${deck.id}/progress`,
+    //   name: 'Progress'
+    // },
     {
       id: 3,
       icon:
